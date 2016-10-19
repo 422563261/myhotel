@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="hidden">
+	<div class="login-box">
+		<div class="box-head">
+			<img src="images/hotel_logo_backup.png" >
+			<span class="box-hotel-name">大头青旅</span>
+			<span class="box-hotel-login">登录</span>
+			<img src="images/close.png" alt="" class="close">
+			<span class="box-hotel-register"><a href="">注册</a></span>
+		</div>
+		<div class="box-input">
+			<div class="input-area">
+				<div class="pic phone-img"></div>
+				<input type="text" class="word username" id="username">
+			</div>
+			<div class="input-area">
+				<div class="pic keyword-img"></div>
+				<input type="password" class="word keyword" id="passsword">
+			</div>
+		</div>
+		<div class="box-up" id="box_up">立即登录</div>
+	</div>
+</div>
+<div class="container">
+	<div class="top">
+		<ul>
+			<li class="register"><a href="#">注册</a></li>
+			<li class="login"><a href="#">登录</a></li>
+			<li class="help">
+				<a href="#">客服帮助</a>
+			</li>
+		</ul>
+	</div>
+	<div class="nav">
+		<div class="hotel">
+			<img src="./images/hotel_logo.png" alt="" class="hotel-logo">
+			<span class="hotel-name">大头青旅</span>
+		</div>
+		<div class="bar">
+			<span class="bar-LP"></span>
+			<ul>
+				<li class="active"><a href="index.html">首页</a></li>
+				<li><a href="#">房间预订</a></li>
+				<li><a href="#">关于我们</a></li>
+			</ul>
+		</div>
+		<div class="ad"></div>
+	</div>
+	<div class="info">
+		<ul>
+			<li class="city-choose">
+				<div class="tip">目的地</div>
+				<div class="tip-name">
+					<input type="text" class="checkincity" placeholder="请输入" value="重庆">
+				</div>
+				<span class="triangle">&nbsp;</span>
+			</li>
+			<li class="date-choose">
+				<div class="tip">日期选择</div>
+				<button type="button" class="checkday day">30</button>
+				<div class="checkmonth month">11月</div>
+				<span class="triangle">&nbsp;</span>
+			</li>
+			<li class="outdate-choose">
+				<div class="tip">日期选择</div>
+				<button type="button" class="checkday outday">5</button>
+				<div class="checkmonth outmonth">12月</div>
+				<span class="triangle">&nbsp;</span>
+			</li>
+			<li class="search">
+				<a href="">
+					<div>查询房间</div>
+					<div>全国300+城市，超过1亿家大头青旅让您选择</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="footer">
+	<img src="images/support.png" alt="">
+</div>
+</body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/index.js"></script>
+</html>
