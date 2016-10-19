@@ -5,9 +5,9 @@
 <struts>
 	<package name="hotel" extends="struts-default" namespace="/">
 
-		<action name="login" class="userAction">
-			<result name="success">success.html</result>
-			<result name="reS">login.html</result>
+		<action name="login" class="action.user.UserAction">
+			<result name="success" type="redirect">/WebApp/success.html</result>
+			<result name="input" type="redirect">/WebApp/login.html</result>
 		</action>
 
 		

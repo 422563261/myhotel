@@ -14,7 +14,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 	}
 	@SuppressWarnings("unchecked")
 	public List<User> findAllUsers() {
-		String hql = "from User user order by user.userid desc";
+		String hql = "from User user order by user.id desc";
 		return (List<User>) this.getHibernateTemplate().find(hql);
 	}
 	public void removeUser(User user) {
