@@ -9,49 +9,81 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 
 import entity.User;
-import net.sf.json.JSONObject;
 import service.UserService;
 
 public class UserAction extends ActionSupport {
-	private User user;
+
+	private String username;
+	private String password;
 	private UserService userService;
 
 	public UserService getUserService() {
 		return userService;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	@Override
 	public String execute() throws Exception {
+
 		HttpSession session = ServletActionContext.getRequest().getSession();
+		HttpServletResponse response = ServletActionContext.getResponse();
 		List<User> list = userService.findAll();
+		
+		JSONObject JSON_Object = null;
+		
+		JSON_Object = new JSONObject();
+		int status;
 		User u = new User();
 		Iterator<User> it = list.iterator();
-	
+		PrintWriter out = response.getWriter();
+
 		while (it.hasNext()) {
-			u=it.next();
-			if (user.getUsername().equals(u.getUsername())&& user.getPassword().equals(u.getPassword())) {
-				session.setAttribute("status", "1");
+			
+			u = it.next();
+			if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+				
+				status=1;
+				JSON_Object.put("status", status);
+				out.write(JSON_Object.toString());
+				out.flush();
+				out.close();
 				return SUCCESS;
 			}
+
+			
 		}
-		session.setAttribute("status", "0");
-		return INPUT;
 		
+		status = 0;
+		JSON_Object.put("status", status);
+		out.write(JSON_Object.toString());
+		out.flush();
+		out.close();
+		return INPUT;
+
 	}
 
 }

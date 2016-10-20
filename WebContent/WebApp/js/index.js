@@ -14,10 +14,12 @@ $(function(){
 		var $password = $("#password").val();
 		$.ajax({
    			"type":"GET",
-   			"url":"",
+   			"url":"/hm/login.action",
    			"dataType":"json",
    			"data":{"username":$username,"password":$password},
-   			"success":function(data){},
+   			"success":function(data){
+   				alert(data.status);
+   			},
    			"error":function(){
    				alert("请稍后再试！");
    			}

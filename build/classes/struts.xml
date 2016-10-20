@@ -3,19 +3,23 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="hotel" extends="struts-default" namespace="/">
+	<package name="hotel" extends="struts-default,json-default" namespace="/">
 
 		<action name="login" class="action.user.UserAction">
-			<result name="success" type="redirect">/WebApp/success.html</result>
-			<result name="input" type="redirect">/WebApp/login.html</result>
+			<interceptor-ref name="json">
+				<param name="contentType">json</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result  name="success" type="json"></result>
+			<result  name="input" type="json"></result>
 		</action>
 
-		
+
 
 	</package>
 
 
 
-	
+
 
 </struts>
