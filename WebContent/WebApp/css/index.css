@@ -3,6 +3,7 @@ html {
 }
 body {
   font-family: "microsoft yahei", arial, simsun, sans-self;
+  cursor: default;
 }
 .hidden {
   position: fixed;
@@ -12,18 +13,19 @@ body {
   bottom: 0;
   z-index: 9999;
   background: rgba(0, 0, 0, 0.5);
-  display: none;
+  visibility: hidden;
 }
-.hidden .login-box {
-  width: 3.9rem;
-  height: 3.2rem;
+.hidden .box {
+  width: 0;
+  height: 0;
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   background: #fff;
   margin: auto;
+  overflow: hidden;
 }
 .hidden .box-head {
   width: 3.5rem;
@@ -54,14 +56,15 @@ body {
   margin-left: -0.16rem;
   margin-top: .21rem;
   font-size: .2rem;
+  cursor: pointer;
 }
 .hidden .box-head .box-hotel-register {
   float: right;
   margin-right: .3rem;
-}
-.hidden .box-head .box-hotel-register a {
   color: #7f1f59;
+  cursor: pointer;
 }
+.hidden .box-head .box-hotel-login a:hover,
 .hidden .box-head .box-hotel-register a:hover {
   color: #000;
 }
@@ -72,9 +75,20 @@ body {
   margin-top: .155rem;
   cursor: pointer;
 }
+.hidden .login-box {
+  position: absolute;
+  left: 50%;
+  margin-left: -1.57rem;
+  display: none;
+}
+.hidden .register-box {
+  position: absolute;
+  left: 50%;
+  margin-left: -1.57rem;
+}
 .hidden .box-input {
-  width: 3.14rem;
-  margin: .1rem auto 0;
+  width: 3.2rem;
+  margin: .1rem 0 0;
   overflow: hidden;
 }
 .hidden .box-input .input-area {
@@ -83,6 +97,7 @@ body {
   margin-top: .17rem;
   border: 1px solid #bebebe;
   box-sizing: border-box;
+  position: relative;
 }
 .hidden .box-input .input-area .pic {
   width: .4rem;
@@ -115,6 +130,13 @@ body {
   line-height: .46rem;
   margin-top: .38rem;
   cursor: pointer;
+}
+.hidden .error {
+  font-size: .12rem;
+  color: red;
+  position: absolute;
+  right: .05rem;
+  top: .13rem;
 }
 .container {
   height: 6rem;
@@ -185,6 +207,7 @@ body {
   width: .36rem;
   height: .02rem;
   background: #e554a5;
+  transition: left .3s ease;
 }
 .bar li {
   float: left;
@@ -194,6 +217,7 @@ body {
 }
 .bar li a {
   color: #dfdbdb;
+  padding: .08rem 0;
 }
 .bar .active a {
   color: #fff;

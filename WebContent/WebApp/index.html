@@ -8,32 +8,53 @@
 </head>
 <body>
 <div class="hidden">
-	<div class="login-box">
+	<div class="box">
 		<div class="box-head">
 			<img src="images/hotel_logo_backup.png" >
 			<span class="box-hotel-name">大头青旅</span>
-			<span class="box-hotel-login">登录</span>
+			<span class="box-hotel-login login-button">登录</span>
 			<img src="images/close.png" alt="" class="close">
-			<span class="box-hotel-register"><a href="">注册</a></span>
+			<span class="box-hotel-register register-button">注册</span>
 		</div>
-		<div class="box-input">
-			<div class="input-area">
-				<div class="pic phone-img"></div>
-				<input type="text" class="word username" id="username">
-			</div>
-			<div class="input-area">
-				<div class="pic keyword-img"></div>
-				<input type="password" class="word keyword" id="password">
+		<div class="login-box">
+			<div class="box-input">
+				<div class="input-area">
+					<div class="pic phone-img"></div>
+					<input type="text" class="word username" id="username" placeholder="请输入手机号/用户名">
+				</div>
+				<div class="input-area">
+					<div class="pic keyword-img"></div>
+					<input type="password" class="word keyword" id="password" placeholder="请输入密码">
+				</div>
+				<div class="box-up" id="box_up">立即登录</div>
 			</div>
 		</div>
-		<div class="box-up" id="box_up">立即登录</div>
+		<div class="register-box">
+			<div class="box-input">
+				<div class="input-area">
+					<div class="pic phone-img"></div>
+					<input type="text" class="word username" id="register_username" placeholder="请输入手机号/用户名">
+					<span class="error error-username"></span>
+				</div>
+				<div class="input-area">
+					<div class="pic keyword-img"></div>
+					<input type="password" class="word keyword" id="register_password" placeholder="请输入6~18位密码">
+					
+				</div>
+				<div class="input-area">
+					<div class="pic keyword-img"></div>
+					<input type="password" class="word keyword" id="register_password_confirm" placeholder="再次输入确认密码">
+				</div>
+				<div class="box-up" id="box_up_r">注册</div>
+			</div>
+		</div>
 	</div>
 </div>
 <div class="container">
 	<div class="top">
 		<ul>
-			<li class="register"><a href="#">注册</a></li>
-			<li class="login"><a href="#">登录</a></li>
+			<li class="register register-button"><a href="#">注册</a></li>
+			<li class="login login-button"><a href="#">登录</a></li>
 			<li class="help">
 				<a href="#">客服帮助</a>
 			</li>
@@ -45,11 +66,11 @@
 			<span class="hotel-name">大头青旅</span>
 		</div>
 		<div class="bar">
-			<span class="bar-LP"></span>
+			<span class="bar-LP" id="bar_LP"></span>
 			<ul>
-				<li class="active"><a href="index.html">首页</a></li>
-				<li><a href="#">房间预订</a></li>
-				<li><a href="#">关于我们</a></li>
+				<li class="active" id="bar_first" value="1"><a href="index.html">首页</a></li>
+				<li value="2"><a href="#">房间预订</a></li>
+				<li value="3"><a href="#">关于我们</a></li>
 			</ul>
 		</div>
 		<div class="ad"></div>
