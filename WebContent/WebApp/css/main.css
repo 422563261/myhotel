@@ -139,13 +139,23 @@ body {
   top: .13rem;
 }
 .container {
-  height: 6rem;
-  background-image: url('../images/bg.png');
+  height: 5.9rem;
+  background-image: url('../images/bg1.jpg');
   position: relative;
+}
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 0.6) 85%, rgba(255, 255, 255, 0.2));
 }
 .top {
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 .top li {
   float: right;
@@ -238,7 +248,7 @@ body {
   width: 7.7rem;
   height: 1.1rem;
   position: absolute;
-  bottom: -0.55rem;
+  bottom: -0.5rem;
   left: 50%;
   margin-left: -3.85rem;
   background: #fff;
@@ -332,5 +342,5 @@ body {
   position: relative;
   left: 50%;
   margin-left: -4.5rem;
-  margin-top: .65rem;
+  margin-top: .6rem;
 }
