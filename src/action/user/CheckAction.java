@@ -60,7 +60,7 @@ public class CheckAction extends ActionSupport {
 
 			u = it.next();
 			if (u.getUsername().equals(username)) {
-				status = 1;
+				status = 0;
 				JSON_Object.put("status", status);
 				out.write(JSON_Object.toString());
 				out.close();
@@ -68,7 +68,7 @@ public class CheckAction extends ActionSupport {
 			}
 
 		}
-		status = 0;
+		status = 1;
 		JSON_Object.put("status", status);
 		out.write(JSON_Object.toString());
 		out.close();

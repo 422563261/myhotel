@@ -1,5 +1,7 @@
 $(function(){
-
+	var $register_username;
+	var $register_password;
+	var $register_password_confirm;
 	$('.close').on('click', function() {
 		$('.hidden').css({
 			"visibility":"hidden"
@@ -79,16 +81,21 @@ $(function(){
    			}
 		})
 	});
-	$('#box_up_r').on('click',  function() {
-		var $username = $("#register_username").val();
-		var $password = $("#register_password").val();
+	$('#box_up_r').on('click', function() {
+		console.log('dianji ');
 		$.ajax({
    			"type":"GET",
    			"url":"/hm/register.action",
    			"dataType":"json",
-   			"data":{"username":$username,"password":$password},
+   			"data":{"username":$register_username,"password":$register_password},
+   			"beforeSend":function(){
+   				if($('.error').text()!=""||$register_username==""||$register_password==""||$register_password_confirm==""){
+   					return false;	
+   				}
+   			},
    			"success":function(data){
-   				alert("success!");
+   				alert("注册成功!");
+   				location.reload();
    			},
    			"error":function(){
    				alert("网络不畅，请稍后再试！");
@@ -97,12 +104,50 @@ $(function(){
 	});
 	$('#register_username').on('blur',  function() {
 		event.preventDefault();
-		console.log($(this))
-		if($(this).val()==""){
+		var $username = $(this).val();
+		$register_username = $username;
+		if($username==""){
 			$('.error-username').text('用户名不能为空');
 		}
 		else{
 			$('.error-username').text('');
+			$.ajax({
+				"url": '/hm/check.action',
+				"type": 'GET',
+				"dataType": 'json',
+				"data": {"username": $username},
+				"success":function(data){
+					if(data.status=="0"){
+						$('.error-username').text('用户名已被占用');
+					}
+					else if(data.status=="1"){
+						$('.error-username').text('');
+					}
+				}
+			})
+		}
+	});
+	$('#register_password').on('blur', function() {
+		event.preventDefault();
+		console.log(1);
+		var $password = $(this).val();
+		$register_password = $password;
+		if($password==""&&$password.length<6){
+			$('.error-password').text('密码少于6位');
+		}
+		else{
+			$('.error-password').text('');
+		}
+	});
+	$('#register_password_confirm').on('blur', function() {
+		event.preventDefault();
+		var $password = $(this).val();
+		$register_password_confirm = $password;
+		if($register_password_confirm!=$register_password){
+			$('.error-password-confirm').text('两个密码不一致');
+		}
+		else{
+			$('.error-password-confirm').text('');
 		}
 	});
 	$('.bar').on('mouseover', 'li', function() {
@@ -142,5 +187,19 @@ $(function(){
 				"left":".8rem",
 				"width":"0.36rem"
 			});
+	});
+	$('.hotel-name').on('mouseover', function(event) {
+		event.preventDefault();
+		$(this).css({
+			"color":"#ffc",
+		    "text-shadow":"0 0 .02rem, 0 0 .02rem"
+		});
+	});
+	$('.hotel-name').on('mouseout',  function(event) {
+		event.preventDefault();
+		$(this).css({
+			"color":"#fff",
+		    "text-shadow":""
+		});
 	});
 })
