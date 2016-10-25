@@ -40,7 +40,7 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-			
+
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
@@ -58,8 +58,7 @@
 
 
 	<!-- userDao -->
-	<bean id="userDao" class="daoImpl.UserDaoImpl"
-		scope="singleton">
+	<bean id="userDao" class="daoImpl.UserDaoImpl" scope="singleton">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -67,9 +66,8 @@
 	<bean id="userService" class="serviceImpl.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
-	
-	<bean id="userAction" class="action.user.UserAction"
-		scope="prototype">
+
+	<bean id="userAction" class="action.user.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
 	<bean id="userRegisterAction" class="action.user.UserRegisterAction"
@@ -77,8 +75,13 @@
 		<property name="userService" ref="userService"></property>
 	</bean>
 
+	<bean id="userCheckAction" class="action.user.CheckAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
 
-	
+
+
 
 
 
