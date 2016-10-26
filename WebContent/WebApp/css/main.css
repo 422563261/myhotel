@@ -179,10 +179,12 @@ body {
 .top li a:hover {
   color: #fff;
 }
-.top .register {
+.top .register,
+.top .self-center {
   margin-right: .45rem;
 }
-.top .login {
+.top .login,
+.top .logout {
   margin-right: .15rem;
 }
 .top .help {

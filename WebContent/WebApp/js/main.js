@@ -2,6 +2,24 @@ $(function(){
 	var $register_username;
 	var $register_password;
 	var $register_password_confirm;
+	$.ajax({
+		"url": '',
+		"type": 'GET',
+		"dataType": 'json',
+		"data": {},
+		"success":function(data){
+			if(data.status=="0"){
+
+			}
+			else if(data.status=="1"){
+				$('.register a').text('退出');
+				$('.register').removeClass().addClass('logout');
+				$('.login a').text(data.username);
+				$('.login').removeClass().addClass('self-center');
+			}
+		}
+	});
+	
 	$('.close').on('click', function() {
 		$('.hidden').css({
 			"visibility":"hidden"
