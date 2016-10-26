@@ -3,11 +3,12 @@ $(function(){
 	var $register_password;
 	var $register_password_confirm;
 	$.ajax({
-		"url": '',
+		"url": '/hm/refresh.action',
 		"type": 'GET',
 		"dataType": 'json',
 		"data": {},
 		"success":function(data){
+			console.log(data);
 			if(data.status=="0"){
 
 			}
@@ -17,6 +18,9 @@ $(function(){
 				$('.login a').text(data.username);
 				$('.login').removeClass().addClass('self-center');
 			}
+		},
+		"error":function(){
+			console.log("错误！");
 		}
 	});
 	
@@ -88,9 +92,10 @@ $(function(){
    			"dataType":"json",
    			"data":{"username":$username,"password":$password},
    			"success":function(data){
+   				
    				if(data.status=="1"){
    					setTimeout(function(){
-   						window.location.href = "info.html";
+   						location.reload();
    					},500)
    				}
    			},

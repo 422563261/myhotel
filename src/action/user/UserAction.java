@@ -68,7 +68,9 @@ public class UserAction extends ActionSupport {
 			if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
 				
 				status=1;
+				session.setAttribute("user", u);
 				JSON_Object.put("status", status);
+				JSON_Object.put("username", username);
 				out.write(JSON_Object.toString());
 				out.close();
 				return SUCCESS;

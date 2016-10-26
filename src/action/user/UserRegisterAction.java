@@ -62,6 +62,7 @@ public class UserRegisterAction extends ActionSupport {
 			status = 1;
 			userService.save(user);
 			JSON_Object.put("status", status);
+			JSON_Object.put("username", username);
 			out.write(JSON_Object.toString());
 			out.close();
 		} else {
