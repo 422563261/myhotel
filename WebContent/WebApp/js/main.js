@@ -3,7 +3,7 @@ $(function(){
 	var $register_password;
 	var $register_password_confirm;
 	$.ajax({
-		"url": '/hm/refresh.action',
+		"url": '/Hotel/refresh.action',
 		"type": 'GET',
 		"dataType": 'json',
 		"data": {},
@@ -88,7 +88,7 @@ $(function(){
 		var $password = $("#password").val();
 		$.ajax({
    			"type":"GET",
-   			"url":"/hm/login.action",
+   			"url":"/Hotel/login.action",
    			"dataType":"json",
    			"data":{"username":$username,"password":$password},
    			"success":function(data){
@@ -108,7 +108,7 @@ $(function(){
 		console.log('dianji ');
 		$.ajax({
    			"type":"GET",
-   			"url":"/hm/register.action",
+   			"url":"/Hotel/register.action",
    			"dataType":"json",
    			"data":{"username":$register_username,"password":$register_password},
    			"beforeSend":function(){
@@ -135,7 +135,7 @@ $(function(){
 		else{
 			$('.error-username').text('');
 			$.ajax({
-				"url": '/hm/check.action',
+				"url": '/Hotel/check.action',
 				"type": 'GET',
 				"dataType": 'json',
 				"data": {"username": $username},
