@@ -3,7 +3,7 @@ package interceptor;
 import java.io.PrintWriter;
 import java.util.Map;
 
-import javax.print.attribute.standard.MediaSize.Other;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -40,7 +40,6 @@ public class LoginInterceptor extends AbstractInterceptor {
 		JSON_Object.put("status", status);
 		out.write(JSON_Object.toString());
 		out.close();
-		System.out.println(user.getUsername());
 		return Action.LOGIN;
 	}
 

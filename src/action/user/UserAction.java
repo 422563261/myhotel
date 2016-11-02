@@ -17,6 +17,10 @@ import service.UserService;
 
 public class UserAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
 	private UserService userService;
@@ -44,11 +48,7 @@ public class UserAction extends ActionSupport {
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-
-
-	@Override
-	public String execute() throws Exception {
-
+	public void login()throws Exception{
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		List<User> list = userService.findAll();
@@ -60,7 +60,6 @@ public class UserAction extends ActionSupport {
 		User u = new User();
 		Iterator<User> it = list.iterator();
 		PrintWriter out = response.getWriter();
-		System.out.println(username);
 
 		while (it.hasNext()) {
 			
@@ -73,7 +72,7 @@ public class UserAction extends ActionSupport {
 				JSON_Object.put("username", username);
 				out.write(JSON_Object.toString());
 				out.close();
-				return SUCCESS;
+				
 			}
 
 			
@@ -83,8 +82,8 @@ public class UserAction extends ActionSupport {
 		JSON_Object.put("status", status);
 		out.write(JSON_Object.toString());
 		out.close();
-		return INPUT;
-
 	}
+
+
 
 }
