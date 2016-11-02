@@ -1,7 +1,6 @@
 package action.user;
 
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +16,10 @@ import service.UserService;
 
 public class UserRegisterAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
 	private UserService userService;
@@ -45,8 +48,8 @@ public class UserRegisterAction extends ActionSupport {
 		this.userService = userService;
 	}
 
-	@Override
-	public String execute() throws Exception {
+	
+	public void register() throws Exception {
 
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -71,7 +74,6 @@ public class UserRegisterAction extends ActionSupport {
 			out.write(JSON_Object.toString());
 			out.close();
 		}
-		return INPUT;
 
 	}
 

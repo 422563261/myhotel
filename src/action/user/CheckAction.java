@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -16,6 +15,10 @@ import entity.User;
 import service.UserService;
 
 public class CheckAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
 	private UserService userService;
@@ -44,9 +47,8 @@ public class CheckAction extends ActionSupport {
 		this.userService = userService;
 	}
 
-	@Override
-	public String execute() throws Exception {
-		HttpSession session = ServletActionContext.getRequest().getSession();
+	public void check() throws Exception {
+
 		HttpServletResponse response = ServletActionContext.getResponse();
 		List<User> list = userService.findAll();
 		JSONObject JSON_Object = null;
@@ -64,7 +66,7 @@ public class CheckAction extends ActionSupport {
 				JSON_Object.put("status", status);
 				out.write(JSON_Object.toString());
 				out.close();
-				return SUCCESS;
+				
 			}
 
 		}
@@ -72,7 +74,6 @@ public class CheckAction extends ActionSupport {
 		JSON_Object.put("status", status);
 		out.write(JSON_Object.toString());
 		out.close();
-		return SUCCESS;
 	}
 
 }

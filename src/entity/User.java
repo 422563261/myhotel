@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Date;
+
 public class User {
 	private int id;
 	public int getId() {
@@ -14,6 +16,20 @@ public class User {
 	private String IDCard_number;
 	private String address;
 	private String sex;
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	public String getCellphone() {
+		return cellphone;
+	}
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
+	}
+	private Date birthday;
+	private String cellphone;
 	public String getUsername() {
 		return username;
 	}

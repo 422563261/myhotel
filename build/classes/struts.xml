@@ -6,30 +6,25 @@
 	<package name="hotel" extends="struts-default,json-default"
 		namespace="/">
 
-		<action name="login" class="action.user.UserAction">
+		<action name="login" class="action.user.UserAction" method="login">
 			<interceptor-ref name="json">
 				<param name="contentType">json</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
-			<result name="success" type="json"></result>
-			<result name="input" type="json"></result>
+
 		</action>
 
-		<action name="register" class="action.user.UserRegisterAction">
+		<action name="register" class="action.user.UserRegisterAction" method="register">
 			<interceptor-ref name="json">
 				<param name="contentType">json</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
-			<result name="success" type="json"></result>
-			<result name="input" type="json"></result>
 		</action>
-		<action name="check" class="action.user.CheckAction">
+		<action name="check" class="action.user.CheckAction" method="check">
 			<interceptor-ref name="json">
 				<param name="contentType">json</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
-			<result name="success" type="json"></result>
-			<result name="input" type="json"></result>
 		</action>
 
 	</package>
@@ -50,11 +45,9 @@
 		<global-results>
 			<result name="login"></result>
 		</global-results>
-		<action name="refresh" class="action.user.RefreshAction">
-			<result name="success" type="json"></result>
+		<action name="refresh" class="action.user.RefreshAction" method="refresh">
 		</action>
-		<action name="loginOut" class="action.user.LoginOutAction">
-			<result name="success" type="json"></result>
+		<action name="loginOut" class="action.user.LoginOutAction" method="loginOut">
 		</action>
 	</package>
 
