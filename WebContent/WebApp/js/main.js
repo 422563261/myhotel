@@ -2,28 +2,46 @@ $(function(){
 	var $register_username;
 	var $register_password;
 	var $register_password_confirm;
+	var $reg1 = /^[A-Za-z0-9]{3,11}$/;//用户名要求是3~11的位的字母或者数字
+	var $reg2 = /^[A-Za-z0-9]{6,11}$/;//密码要求是6~11的位的字母或者数字
+
+	//对于用户是否登录的检测请求
 	$.ajax({
 		"url": '/Hotel/refresh.action',
 		"type": 'GET',
 		"dataType": 'json',
 		"data": {},
 		"success":function(data){
-			console.log(data);
-			if(data.status=="0"){
-
-			}
-			else if(data.status=="1"){
-				$('.register a').text('退出');
-				$('.register').removeClass().addClass('logout');
-				$('.login a').text(data.username);
-				$('.login').removeClass().addClass('self-center');
+			if(data.status=="1"){
+				$('.register').remove();
+				$('.login a').text('你好，'+data.username);
+				$('.login').off('click',login).on('click',selfCenter).css({"margin-right":".4rem"});
 			}
 		},
 		"error":function(){
-			console.log("错误！");
+			console.log("网络错误！");
 		}
 	});
+
+	//退出登录事件
+	function logout(){
+		$.ajax({
+			url: '/Hotel/loginOut.action',
+			type: 'GET',
+			dataType: 'json',
+			data: {},
+			success:function(){
+				location.reload();
+			}
+		})	
+	}
+
+	//跳转个人中心事件
+	function selfCenter(){
+		
+	}
 	
+	//点击关闭按钮事件
 	$('.close').on('click', function() {
 		$('.hidden').css({
 			"visibility":"hidden"
@@ -32,8 +50,13 @@ $(function(){
 			"width":"0",
 			"height":"0"
 		});
+		$('.box input').val('');
+		$('.error').text('');
 	});
-	$('.login-button').on('click', function() {
+
+	//点击登录按钮事件
+	$('.login-button').on('click',login);
+	function login (){
 		$('.hidden').css({
 			"visibility":"visible"
 		});
@@ -57,8 +80,11 @@ $(function(){
 		$('.register-box').css({
 			"display":"none"
 		});
-	});
-	$('.register-button').on('click', function() {
+	}
+
+	//点击注册按钮事件
+	$('.register-button').on('click', register);
+	function register(){
 		$('.hidden').css({
 			"visibility":"visible"
 		});
@@ -82,8 +108,10 @@ $(function(){
 		$('.login-box').css({
 			"display":"none"
 		});
-	});
-	$('#box_up').on('click',  function() {
+	}
+
+	//登录事件
+	$('#box_up').on('click',function() {
 		var $username = $("#username").val();
 		var $password = $("#password").val();
 		$.ajax({
@@ -92,11 +120,14 @@ $(function(){
    			"dataType":"json",
    			"data":{"username":$username,"password":$password},
    			"success":function(data){
-   				
    				if(data.status=="1"){
-   					setTimeout(function(){
+   					$('#box_up').before('<p class="login-success">登陆成功！</p>');
+   					setTimeout(function(){   						
    						location.reload();
    					},500)
+   				}
+   				else{
+   					$('#box_up').before('<p class="login-error error">用户名或者密码错误！</p>');
    				}
    			},
    			"error":function(){
@@ -104,8 +135,9 @@ $(function(){
    			}
 		})
 	});
+
+	//注册事件
 	$('#box_up_r').on('click', function() {
-		console.log('dianji ');
 		$.ajax({
    			"type":"GET",
    			"url":"/Hotel/register.action",
@@ -117,20 +149,27 @@ $(function(){
    				}
    			},
    			"success":function(data){
-   				alert("注册成功!");
-   				location.reload();
+   				$('#box_up_r').before('<p class="login-success">注册成功！</p>');
+				setTimeout(function(){   						
+					location.reload();
+				},500)
    			},
    			"error":function(){
    				alert("网络不畅，请稍后再试！");
    			}
 		})
 	});
-	$('#register_username').on('blur',  function() {
+
+	//检测用户名是否被占用和是否符合规范
+	$('#register_username').on('blur',  function(event) {
 		event.preventDefault();
 		var $username = $(this).val();
 		$register_username = $username;
 		if($username==""){
 			$('.error-username').text('用户名不能为空');
+		}
+		else if(!$reg1.test($username)) {
+			$('.error-username').text('用户名不合规范');
 		}
 		else{
 			$('.error-username').text('');
@@ -150,19 +189,25 @@ $(function(){
 			})
 		}
 	});
-	$('#register_password').on('blur', function() {
+
+	//检测密码是否符合规范
+	$('#register_password').on('blur', function(event) {
 		event.preventDefault();
-		console.log(1);
 		var $password = $(this).val();
 		$register_password = $password;
-		if($password==""&&$password.length<6){
-			$('.error-password').text('密码少于6位');
+		if($password==""){
+			$('.error-password').text('密码不能为空');
+		}
+		else if(!$reg2.test($password)){
+			$('.error-password').text('密码不合规范');
 		}
 		else{
 			$('.error-password').text('');
 		}
 	});
-	$('#register_password_confirm').on('blur', function() {
+
+	//检测两次密码输入是否一致
+	$('#register_password_confirm').on('blur', function(event) {
 		event.preventDefault();
 		var $password = $(this).val();
 		$register_password_confirm = $password;
@@ -173,6 +218,8 @@ $(function(){
 			$('.error-password-confirm').text('');
 		}
 	});
+
+	//鼠标放在导航栏上触发效果
 	$('.bar').on('mouseover', 'li', function() {
 		event.preventDefault();
 		$('.bar li').removeClass('active');
@@ -199,6 +246,8 @@ $(function(){
 			});
 		}
 	});
+
+	//鼠标离开导航栏触发效果
 	$('.bar').on('mouseout', 'li', function() {
 		event.preventDefault();
 		var $value = $(this).attr("value");
@@ -211,6 +260,8 @@ $(function(){
 				"width":"0.36rem"
 			});
 	});
+
+	//鼠标放在HOTEL触发效果
 	$('.hotel-name').on('mouseover', function(event) {
 		event.preventDefault();
 		$(this).css({
@@ -218,6 +269,8 @@ $(function(){
 		    "text-shadow":"0 0 .02rem, 0 0 .02rem"
 		});
 	});
+
+	//鼠标离开HOTEL触发效果
 	$('.hotel-name').on('mouseout',  function(event) {
 		event.preventDefault();
 		$(this).css({

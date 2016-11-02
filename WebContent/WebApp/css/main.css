@@ -147,6 +147,22 @@ body {
   right: .05rem;
   top: .13rem;
 }
+.hidden .login-success {
+  position: absolute;
+  color: #2ed28a;
+  font-size: .12rem;
+  left: 50%;
+  margin-left: -0.3rem;
+  margin-top: .1rem;
+}
+.hidden .login-error {
+  position: absolute;
+  color: red;
+  font-size: .12rem;
+  left: 50%;
+  margin-left: -0.6rem;
+  margin-top: .1rem;
+}
 .container {
   height: 5.9rem;
   background-image: url('../images/bg1.jpg');
@@ -163,7 +179,7 @@ body {
 }
 .top {
   width: 100%;
-  height: .5rem;
+  height: .55rem;
   overflow: hidden;
   position: relative;
 }
@@ -174,18 +190,21 @@ body {
 }
 .top li a {
   color: #dfdbdb;
-  border: .05rem solid transparent;
+  border: .15rem solid transparent;
 }
 .top li a:hover {
   color: #fff;
 }
-.top .register,
-.top .self-center {
+.top .register {
   margin-right: .45rem;
 }
-.top .login,
-.top .logout {
+.top .login {
   margin-right: .15rem;
+}
+.top .register,
+.top .login {
+  height: .16rem;
+  line-height: .16rem;
 }
 .top .help {
   float: left;
@@ -206,21 +225,22 @@ body {
   overflow: hidden;
   line-height: .3rem;
   text-align: center;
-  width: 1.3rem;
+  width: 1.5rem;
   margin: 0 auto;
 }
 .hotel .hotel-logo {
   float: left;
   display: inline-block;
   width: .3rem;
+  margin-top: .1rem;
 }
 .hotel .hotel-name {
   float: left;
-  margin-left: .05rem;
   transition: all 1s;
+  border: .1rem solid transparent;
 }
 .bar {
-  margin-top: .4rem;
+  margin-top: .2rem;
   overflow: hidden;
   position: relative;
 }
