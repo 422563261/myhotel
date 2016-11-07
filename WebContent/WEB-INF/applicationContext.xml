@@ -36,6 +36,7 @@
 			<list>
 
 				<value>entity/User.hbm.xml</value>
+				<value>entity/Order.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -90,7 +91,7 @@
 	</bean>
 	<!-- orderAction -->
 	<bean id="orderAction" class="action.order.OrderAction" scope="prototype">
-	<property name="orderService" ref="orderService"></property>
+		<property name="orderService" ref="orderService"></property>
 	</bean>
 
 

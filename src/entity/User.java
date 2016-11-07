@@ -17,6 +17,8 @@ public class User {
 	private String address;
 	private String sex;
 	private int money;
+	private Date birthday;
+	private String cellphone;
 	public int getMoney() {
 		return money;
 	}
@@ -35,8 +37,7 @@ public class User {
 	public void setCellphone(String cellphone) {
 		this.cellphone = cellphone;
 	}
-	private Date birthday;
-	private String cellphone;
+	
 	public String getUsername() {
 		return username;
 	}

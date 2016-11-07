@@ -51,6 +51,8 @@ public class UserAction extends ActionSupport {
 	public void login()throws Exception{
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
+		User user = userService.findById(1);
+		System.out.println(user.getUsername());
 		List<User> list = userService.findAll();
 		
 		JSONObject JSON_Object = null;
@@ -60,12 +62,10 @@ public class UserAction extends ActionSupport {
 		User u = new User();
 		Iterator<User> it = list.iterator();
 		PrintWriter out = response.getWriter();
-
 		while (it.hasNext()) {
 			
 			u = it.next();
 			if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
-				
 				status=1;
 				session.setAttribute("user", u);
 				JSON_Object.put("status", status);
