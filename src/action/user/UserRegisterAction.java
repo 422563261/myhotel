@@ -51,7 +51,7 @@ public class UserRegisterAction extends ActionSupport {
 	
 	public void register() throws Exception {
 
-		HttpSession session = ServletActionContext.getRequest().getSession();
+		
 		HttpServletResponse response = ServletActionContext.getResponse();
 		List<User> list = userService.findAll();
 		JSONObject JSON_Object = null;

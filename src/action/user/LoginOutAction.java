@@ -12,9 +12,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginOutAction extends ActionSupport{
 
-<<<<<<< HEAD
-	@Override
-	public String execute() throws Exception {
+
+
+	private static final long serialVersionUID = 1L;
+
+	
+	public void  loginOut() throws Exception {
+		
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		session.setAttribute("user", null);
@@ -25,18 +29,7 @@ public class LoginOutAction extends ActionSupport{
 		JSON_Object.put("status", status);
 		out.print(JSON_Object.toString());
 		out.close();
-		return SUCCESS;
-=======
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	public void  loginOut() throws Exception {
-		
-		
->>>>>>> 47365927147095fb1add22714d0bec0194b48873
 	}
 
 }

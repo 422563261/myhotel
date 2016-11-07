@@ -16,6 +16,13 @@ public class User {
 	private String IDCard_number;
 	private String address;
 	private String sex;
+	private int money;
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
+	}
 	public Date getBirthday() {
 		return birthday;
 	}

@@ -71,6 +71,7 @@ public class UserAction extends ActionSupport {
 				JSON_Object.put("status", status);
 				JSON_Object.put("username", username);
 				out.write(JSON_Object.toString());
+				out.flush();
 				out.close();
 				
 			}
@@ -81,6 +82,7 @@ public class UserAction extends ActionSupport {
 		status = 0;
 		JSON_Object.put("status", status);
 		out.write(JSON_Object.toString());
+		out.flush();
 		out.close();
 	}
 

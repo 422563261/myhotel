@@ -65,6 +65,7 @@ public class CheckAction extends ActionSupport {
 				status = 0;
 				JSON_Object.put("status", status);
 				out.write(JSON_Object.toString());
+				out.flush();
 				out.close();
 				
 			}
@@ -73,6 +74,7 @@ public class CheckAction extends ActionSupport {
 		status = 1;
 		JSON_Object.put("status", status);
 		out.write(JSON_Object.toString());
+		out.flush();
 		out.close();
 	}
 

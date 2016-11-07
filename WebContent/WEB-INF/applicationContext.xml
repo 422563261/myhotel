@@ -66,7 +66,17 @@
 	<bean id="userService" class="serviceImpl.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
+	<!-- orderDao -->
+	<bean id="orderDao" class="daoImpl.OrderDaoImpl" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="orderService" class="serviceImpl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao"></property>
+	</bean>
 
+	<!-- userAction -->
 	<bean id="userAction" class="action.user.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
@@ -75,13 +85,13 @@
 		<property name="userService" ref="userService"></property>
 	</bean>
 
-	<bean id="userCheckAction" class="action.user.CheckAction"
-		scope="prototype">
+	<bean id="userCheckAction" class="action.user.CheckAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
-
-
-
+	<!-- orderAction -->
+	<bean id="orderAction" class="action.order.OrderAction" scope="prototype">
+	<property name="orderService" ref="orderService"></property>
+	</bean>
 
 
 

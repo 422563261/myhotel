@@ -49,6 +49,10 @@
 		</action>
 		<action name="loginOut" class="action.user.LoginOutAction" method="loginOut">
 		</action>
+		<action name="saveOrder" class="action.order.OrderAction" method="saveOrder">
+		</action>
+		<action name="getOrder" class="action.order.OrderAction" method="getOrder">
+		</action>
 	</package>
 
 
