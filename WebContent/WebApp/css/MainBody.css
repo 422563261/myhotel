@@ -2,7 +2,6 @@ html {
   font-size: 100px;
 }
 body {
-  font-family: "microsoft yahei", arial, simsun, sans-self;
   cursor: default;
 }
 .hidden::before {
@@ -25,8 +24,7 @@ body {
   visibility: hidden;
 }
 .hidden .box {
-  width: 0;
-  height: 0;
+  width: 3.9rem;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -35,6 +33,16 @@ body {
   background: #fff;
   margin: auto;
   overflow: hidden;
+  transform: scale(0);
+  transition: .5s transform;
+}
+.hidden .box-login-active {
+  height: 3.1rem;
+  transform: scale(1);
+}
+.hidden .box-register-active {
+  height: 3.7rem;
+  transform: scale(1);
 }
 .hidden .box-head {
   width: 3.5rem;
@@ -180,7 +188,9 @@ body {
 .top {
   width: 100%;
   height: .55rem;
-  overflow: hidden;
+  position: relative;
+}
+.top ul {
   position: relative;
 }
 .top li {
@@ -198,13 +208,13 @@ body {
 .top .register {
   margin-right: .45rem;
 }
-.top .login {
-  margin-right: .15rem;
-}
 .top .register,
 .top .login {
   height: .16rem;
   line-height: .16rem;
+}
+.top .user {
+  margin-right: .4rem;
 }
 .top .help {
   float: left;
@@ -212,6 +222,37 @@ body {
   padding-left: .3rem;
   margin-left: .4rem;
   cursor: pointer;
+}
+.top .float-info {
+  position: absolute;
+  display: none;
+  width: 1.18rem;
+  height: 1.62rem;
+  padding: .08rem .01rem;
+  opacity: .8;
+  border-radius: .03rem;
+  background: #fff;
+  right: .35rem;
+  top: .5rem;
+}
+.top .float-info li {
+  height: .32rem;
+  line-height: .32rem;
+  margin-top: 0;
+  float: none;
+}
+.top .float-info li a {
+  width: .96rem;
+  height: 100%;
+  display: inline-block;
+  color: #333;
+  font-size: .14rem;
+  border: none;
+  padding-left: .22rem;
+}
+.top .float-info li a:hover {
+  color: #7e2259;
+  background: #e7e7e7;
 }
 .nav {
   width: 7rem;
@@ -238,6 +279,10 @@ body {
   float: left;
   transition: all 1s;
   border: .1rem solid transparent;
+  transform: scale(1);
+}
+.hotel .hotel-name:hover {
+  transform: scale(1.1);
 }
 .bar {
   margin-top: .2rem;

@@ -2,10 +2,15 @@ html {
   font-size: 100px;
 }
 .head {
-  height: .94rem;
   border-top: .04rem solid #971464;
   background: #f8f4f6;
-  padding: 0 .5rem;
+  min-width: 12.8rem;
+}
+.head .head-center {
+  width: 11.9rem;
+  height: .94rem;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .head .logo-box {
   width: 3rem;
@@ -56,56 +61,4 @@ html {
 }
 .head .user-box ul li:nth-child(2) a {
   color: #6a2a55;
-}
-.dir {
-  overflow: hidden;
-  padding: .2rem .5rem .1rem .5rem;
-  height: .2rem;
-  line-height: .2rem;
-}
-.dir ul {
-  font-size: 0;
-}
-.dir li {
-  float: left;
-  margin-right: .15rem;
-}
-.dir li a {
-  color: #000;
-  font-size: .12rem;
-}
-.main-body {
-  padding: 0 .5rem;
-  overflow: hidden;
-}
-.left-pannel {
-  padding-top: .25rem;
-  width: 1.7rem;
-  float: left;
-}
-.left-pannel li {
-  margin-top: .35rem;
-}
-.left-pannel li a {
-  font-size: .14rem;
-  color: #000;
-}
-.left-pannel li:first-child {
-  margin-top: 0;
-}
-.left-pannel li:first-child a {
-  color: #7a0b64;
-  font-weight: bold;
-}
-.right-pannel {
-  float: left;
-}
-.right-pannel .top-box {
-  height: 3rem;
-  width: 10.08rem;
-  border: .01rem solid #eeeae9;
-}
-.right-pannel .left-fillbox {
-  width: 4.78rem;
-  padding: .4rem 0 0.25rem .2rem;
 }

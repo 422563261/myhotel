@@ -19,8 +19,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, "Hiragino Sans GB", "Microsoft YaHei",  
-             "WenQuanYi Micro Hei", sans-serif;
+  font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
 }
 
 /* HTML5 display definitions

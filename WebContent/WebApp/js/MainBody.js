@@ -14,8 +14,8 @@ $(function(){
 		"success":function(data){
 			if(data.status=="1"){
 				$('.register').remove();
-				$('.login a').text('你好，'+data.username);
-				$('.login').off('click',login).on('click',selfCenter).css({"margin-right":".4rem"});
+				$('.login').remove()
+				$('.float-info').before("<li class='user'><a href='#'>你好，"+data.username+"</a></li>");
 			}
 		},
 		"error":function(){
@@ -36,20 +36,42 @@ $(function(){
 		})	
 	}
 
-	//跳转个人中心事件
-	function selfCenter(){
-		
-	}
+	$('.top').on('mouseover','.user', function(event) {
+		event.preventDefault();
+		console.log($(this))
+		$(this).attr('status','active');
+		$('.float-info').css("display","block");
+	});
+	$('.top').on('mouseout', '.user',function(event) {
+		event.preventDefault();
+		$(this).attr('status','');
+		if($('.float-info').attr('status')!="active"){
+			$('.float-info').css("display","none");
+		}
+	});
+	$('.float-info').on('mouseover', function(event) {
+		event.preventDefault();
+		$(this).css("display","block").attr('status','active');
+	});
+	$('.float-info').on('mouseout', function(event) {
+		event.preventDefault();
+		$(this).attr('status','');
+		if($('.user').attr('status')!="active"){
+			$(this).css("display","none");
+		}
+
+	});
+
+
+	//个人信息操作
+
 	
 	//点击关闭按钮事件
 	$('.close').on('click', function() {
 		$('.hidden').css({
 			"visibility":"hidden"
 		});
-		$('.box').css({
-			"width":"0",
-			"height":"0"
-		});
+		$('.box').removeClass('box-login-active').removeClass('box-register-active');
 		$('.box input').val('');
 		$('.error').text('');
 	});
@@ -60,10 +82,7 @@ $(function(){
 		$('.hidden').css({
 			"visibility":"visible"
 		});
-		$('.box').animate({
-			"width":"3.9rem",
-			"height":"3.1rem"
-		},"swing");
+		$('.box').addClass('box-login-active').removeClass('box-register-active');
 		$('.box-hotel-register').css({
 			"font-size":".16rem",
 			"color":"#7f1f59",
@@ -88,10 +107,7 @@ $(function(){
 		$('.hidden').css({
 			"visibility":"visible"
 		});
-		$('.box').animate({
-			"width":"3.9rem",
-			"height":"3.7rem"
-		},"swing");
+		$('.box').addClass('box-register-active').removeClass('box-login-active');
 		$('.box-hotel-login').css({
 			"font-size":".16rem",
 			"color":"#7f1f59",
@@ -135,6 +151,9 @@ $(function(){
    			}
 		})
 	});
+
+	//登陆成功后的个人工具栏
+	$()
 
 	//注册事件
 	$('#box_up_r').on('click', function() {
