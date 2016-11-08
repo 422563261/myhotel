@@ -11,6 +11,7 @@
 				<param name="contentType">json</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
+			
 
 		</action>
 

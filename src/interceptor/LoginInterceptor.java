@@ -28,13 +28,7 @@ public class LoginInterceptor extends AbstractInterceptor {
 		PrintWriter out = responce.getWriter();
 		int status;
 		if (user != null) {
-			System.out.println(user.getUsername());
-			status=1;
-			JSON_Object.put("username", user.getUsername());
-			JSON_Object.put("money", user.getMoney());
-			JSON_Object.put("status", status);
-			out.write(JSON_Object.toString());
-			out.close();
+		
 			return invocation.invoke();
 		}
 		status=0;

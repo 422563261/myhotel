@@ -3,6 +3,7 @@ package action.order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -54,20 +55,32 @@ public class OrderAction extends ActionSupport {
 		out.close();
 
 	}
-	public void getOrder() throws Exception{
+
+	public void getOrder() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		JSONObject JSON_Object = new JSONObject();
 		User user = (User) session.getAttribute("user");
 		List<Order> order = orderService.findOrderByName(user.getName());
+		PrintWriter out = response.getWriter();
+		System.out.println("asd");
 		int status;
 		status = 1;
+		Order o = new Order();
+		Iterator<Order> it = order.iterator();
+		while (it.hasNext()) {
+
+			o = it.next();
+			JSON_Object.put("order", o);
+		}
 		JSON_Object.put("status", status);
-		JSON_Object.put("order",order);
-		PrintWriter out = response.getWriter();
+		System.out.println("asd");
+
+		
 		out.write(JSON_Object.toString());
 		out.flush();
 		out.close();
+		System.out.println("asd");
 	}
 
 }
