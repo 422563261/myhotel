@@ -12,4 +12,6 @@ public interface OrderService {
 	public void updateOrder(Order order);
 
 	public List<Order> findOrderByName(String name);
+
+	public List<Order> findAllOrders();
 }

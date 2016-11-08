@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-11-7 23:32:16 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="entity.Order" table="order">
+    <class name="entity.Order" table="user_order">
         <id name="id" type="int">
             <column name="ID" />
             <generator class="native" />
         </id>
-        <property name="orderId" type="java.lang.StringBuffer">
+        <property name="orderId" type="java.lang.String">
             <column name="ORDERID" />
         </property>
         <property name="name" type="java.lang.String">

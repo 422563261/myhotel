@@ -39,5 +39,11 @@ public class OrderServiceImpl implements OrderService {
 		return this.orderDao.findOrderByName(name);
 	}
 
+	@Override
+	public List<Order> findAllOrders() {
+		
+		return this.orderDao.findAllOrders();
+	}
+
 
 }

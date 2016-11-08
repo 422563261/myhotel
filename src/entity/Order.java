@@ -1,26 +1,46 @@
 package entity;
 
+
 import java.util.Date;
 
 public class Order {
+
+
 	private int id;
-	private StringBuffer orderId;
+	private String orderId;
 	private String name;
 	private String roomId;
 	private int totalMoney;
 	private Date start_day;
 	private Date final_day;
-	private String order_Status;
+	private String order_status;
+	
+	public Order(){
+		
+	}
+	
+	public Order(int id, String orderId, String name, String roomId, int totalMoney, Date start_day,
+			Date final_day, String order_status) {
+		this.id = id;
+		this.orderId = orderId;
+		this.name = name;
+		this.roomId = roomId;
+		this.totalMoney = totalMoney;
+		this.start_day = start_day;
+		this.final_day = final_day;
+		this.order_status = order_status;
+	}
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StringBuffer getOrderId() {
+	public String getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(StringBuffer orderId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 	public String getName() {
@@ -54,10 +74,10 @@ public class Order {
 		this.final_day = final_day;
 	}
 	public String getOrder_Status() {
-		return order_Status;
+		return order_status;
 	}
-	public void setOrder_Status(String order_Status) {
-		this.order_Status = order_Status;
+	public void setOrder_Status(String order_status) {
+		this.order_status = order_status;
 	}
 	
 	

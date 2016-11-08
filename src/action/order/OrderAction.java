@@ -1,6 +1,6 @@
 package action.order;
 
-import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.Iterator;
@@ -19,6 +19,10 @@ import entity.User;
 import service.OrderService;
 
 public class OrderAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Date startDay;
 	private Date finalDay;
 	private String orderStatus;
@@ -55,32 +59,35 @@ public class OrderAction extends ActionSupport {
 		out.close();
 
 	}
-
 	public void getOrder() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		JSONObject JSON_Object = new JSONObject();
 		User user = (User) session.getAttribute("user");
-		List<Order> order = orderService.findOrderByName(user.getName());
+		List<Order> order = orderService.findAllOrders();
 		PrintWriter out = response.getWriter();
-		System.out.println("asd");
 		int status;
-		status = 1;
 		Order o = new Order();
 		Iterator<Order> it = order.iterator();
 		while (it.hasNext()) {
 
 			o = it.next();
-			JSON_Object.put("order", o);
+			if (o.getName().equals(user.getName())) {
+				JSON_Object.put("order", o);
+				status = 1;
+				JSON_Object.put("status", status);
+				out.write(JSON_Object.toString());
+				out.flush();
+				out.close();
+				
+			}
 		}
+		status=0;
 		JSON_Object.put("status", status);
-		System.out.println("asd");
-
-		
 		out.write(JSON_Object.toString());
 		out.flush();
 		out.close();
-		System.out.println("asd");
+		
 	}
 
 }

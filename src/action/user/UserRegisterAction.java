@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -48,10 +47,8 @@ public class UserRegisterAction extends ActionSupport {
 		this.userService = userService;
 	}
 
-	
 	public void register() throws Exception {
 
-		
 		HttpServletResponse response = ServletActionContext.getResponse();
 		List<User> list = userService.findAll();
 		JSONObject JSON_Object = null;

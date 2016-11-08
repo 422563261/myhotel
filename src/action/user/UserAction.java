@@ -51,8 +51,6 @@ public class UserAction extends ActionSupport {
 	public void login()throws Exception{
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
-		User user = userService.findById(1);
-		System.out.println(user.getUsername());
 		List<User> list = userService.findAll();
 		
 		JSONObject JSON_Object = null;
