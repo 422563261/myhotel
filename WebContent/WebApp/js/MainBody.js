@@ -24,7 +24,8 @@ $(function(){
 	});
 
 	//退出登录事件
-	function logout(){
+	$("#logout").on('click', function(event) {
+		event.preventDefault();
 		$.ajax({
 			url: '/Hotel/loginOut.action',
 			type: 'GET',
@@ -34,7 +35,7 @@ $(function(){
 				location.reload();
 			}
 		})	
-	}
+	});
 
 	$('.top').on('mouseover','.user', function(event) {
 		event.preventDefault();

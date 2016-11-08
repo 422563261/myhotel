@@ -19,10 +19,11 @@ html {
   margin-top: .2rem;
   margin-left: .25rem;
 }
-.head .logo-box img {
+.head .logo-box #logo {
   width: .58rem;
   height: .54rem;
   float: left;
+  cursor: pointer;
 }
 .head .logo-box .slogan {
   height: .4rem;
@@ -35,6 +36,7 @@ html {
   margin-left: .37rem;
   margin-top: .07rem;
   border-left: .01rem solid #e6e6e6;
+  cursor: pointer;
 }
 .head .user-box {
   height: .3rem;
