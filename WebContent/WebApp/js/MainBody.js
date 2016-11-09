@@ -7,16 +7,21 @@ $(function(){
 
 	//对于用户是否登录的检测请求
 	$.ajax({
-		"url": '/Hotel/refresh.action',
+		"url": '/Hotel/WebApp/refresh.action',
 		"type": 'GET',
 		"dataType": 'json',
 		"data": {},
 		"success":function(data){
-			if(data.status=="1"){
-				$('.register').remove();
-				$('.login').remove()
-				$('.float-info').before("<li class='user'><a href='#'>你好，"+data.username+"</a></li>");
-			}
+			var data = $.parseJSON(data.content);
+			console.log(data);
+			console.log(typeof data);
+			console.log(data[1].name);
+
+			 if(data[0].status=="1"){
+			 	$('.register').remove();
+			 	$('.login').remove()
+			 	$('.float-info').before("<li class='user'><a href='#'>你好，"+data[2].username+"</a></li>");
+			 }
 		},
 		"error":function(){
 			console.log("网络错误！");
@@ -144,7 +149,7 @@ $(function(){
    					},500)
    				}
    				else{
-   					$('#box_up').before('<p class="login-error error">用户名或者密码错误！</p>');
+   					$('#box_up').before('<p class="login-error">用户名或者密码错误！</p>');
    				}
    			},
    			"error":function(){
@@ -153,8 +158,7 @@ $(function(){
 		})
 	});
 
-	//登陆成功后的个人工具栏
-	$()
+
 
 	//注册事件
 	$('#box_up_r').on('click', function() {
@@ -188,9 +192,9 @@ $(function(){
 		if($username==""){
 			$('.error-username').text('用户名不能为空');
 		}
-		else if(!$reg1.test($username)) {
-			$('.error-username').text('用户名不合规范');
-		}
+//		else if(!$reg1.test($username)) {
+//			$('.error-username').text('用户名不合规范');
+//		}
 		else{
 			$('.error-username').text('');
 			$.ajax({

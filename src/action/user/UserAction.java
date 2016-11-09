@@ -61,9 +61,11 @@ public class UserAction extends ActionSupport {
 		Iterator<User> it = list.iterator();
 		PrintWriter out = response.getWriter();
 		while (it.hasNext()) {
-			
+			System.out.println("username: "+u.getUsername() +"password: " +u.getPassword());
+			System.out.println("Name: "+ u.getName());
 			u = it.next();
 			if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+				
 				status=1;
 				session.setAttribute("user", u);
 				JSON_Object.put("status", status);

@@ -60,33 +60,7 @@ public class OrderAction extends ActionSupport {
 
 	}
 	public void getOrder() throws Exception {
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		HttpServletResponse response = ServletActionContext.getResponse();
-		JSONObject JSON_Object = new JSONObject();
-		User user = (User) session.getAttribute("user");
-		List<Order> order = orderService.findAllOrders();
-		PrintWriter out = response.getWriter();
-		int status;
-		Order o = new Order();
-		Iterator<Order> it = order.iterator();
-		while (it.hasNext()) {
-
-			o = it.next();
-			if (o.getName().equals(user.getName())) {
-				JSON_Object.put("order", o);
-				status = 1;
-				JSON_Object.put("status", status);
-				out.write(JSON_Object.toString());
-				out.flush();
-				out.close();
-				
-			}
-		}
-		status=0;
-		JSON_Object.put("status", status);
-		out.write(JSON_Object.toString());
-		out.flush();
-		out.close();
+		
 		
 	}
 

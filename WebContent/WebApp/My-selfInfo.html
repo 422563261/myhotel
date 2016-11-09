@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My-selfInfo</title>
+	<link rel="stylesheet" href="/Hotel/WebApp/css/normalize.css">
+	<link rel="stylesheet" href="/Hotel/WebApp/css/My-header.css">
+	<link rel="stylesheet" href="/Hotel/WebApp/css/My-leftPannel.css">
+	<link rel="stylesheet" href="/Hotel/WebApp/css/My-selfInfo.css">
+
+
+
+<!-- 
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/My-header.css">
+	<link rel="stylesheet" href="css/My-leftPannel.css">
+	<link rel="stylesheet" href="css/My-selfInfo.css"> -->
+</head>
+<body>
+	<div class="inner">
+		<div class="inner-center">
+		<div class="dir">
+			<ul>
+				<li><a href="/Hotel/WebApp/index.html">首页</a></li>
+				<li>&gt;</li>
+				<li><a href="/Hotel/WebApp/My-hotel.html">我的大头青旅</a></li>
+			</ul>
+		</div>
+		<div class="main-body">
+			<div class="left-pannel">
+				<ul>
+					<li><a href="/Hotel/WebApp/My-hotel.html">我的大头青旅</a></li>
+					<li><a href="">订单中心</a></li>
+					<li><a href="#">我的钱包</a></li>
+					<li><a href="/Hotel/WebApp/My-selfInfo.html">个人中心</a></li>
+					<li><a href="#">常用信息</a></li>
+				</ul>
+			</div>
+			<div class="right-pannel">
+				<h2 class="title">基本信息</h2>
+				<form action="ac.action">
+					<div class="main-info">
+						<div class="imgline">
+							<div class="lab">上传头像：</div>
+							<div class="photo">
+								<input type="file" hidden id="img_up">
+								<a href="#" class="img-up">
+									<img src="images/nophoto.png" >
+									<p>修改头像</p>
+								</a>
+							</div>
+						</div>
+						<div class="line">
+							<span class="lab">姓名：</span>
+							<input type="text" readonly="readonly" class="username" id="username" value="谭睿奇">
+						</div>
+						<div class="line">
+							<span class="lab">性别：</span>
+							<select id="choose_sex">
+								<option value="1">男</option>
+								<option value="2">女</option>
+							</select>
+						</div>
+						<div class="line">
+							<span class="lab">证件类型：</span>
+							<select id="choose_id">
+								<option value="1">居民身份证</option>
+								<option value="2">往来港澳通行证</option>
+								<option value="3">学生证</option>
+							</select>
+						</div>
+						<div class="line">
+							<span class="lab">证件号码：</span>
+							<input type="text" id="id_number" placeholder="请填写证件号码">
+						</div>
+						<div class="line">
+							<span class="lab">联系方式：</span>
+							<input type="text" id="phone_number" placeholder="请填写联系方式">
+						</div>
+						<div class="line">
+							<span class="lab"></span>
+							<button type="submit" class="save">保存</button>
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="/Hotel/WebApp/js/jquery-2.1.4.min.js"></script>
+<script src="/Hotel/WebApp/js/My-selfInfo.js"></script>
+
+
+</html>

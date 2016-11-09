@@ -20,10 +20,18 @@ html {
 .dir li {
   float: left;
   margin-right: .15rem;
+  font-size: .12rem;
 }
 .dir li a {
   color: #000;
   font-size: .12rem;
+}
+.dir a:hover {
+  color: #7a0b64;
+}
+.dir li:last-child a:hover {
+  color: #000;
+  cursor: text;
 }
 .main-body {
   overflow: hidden;
@@ -40,6 +48,9 @@ html {
 .left-pannel li a {
   font-size: .14rem;
   color: #333;
+}
+.left-pannel li a:hover {
+  color: #7a0b64;
 }
 .left-pannel li:first-child {
   margin-top: 0;
