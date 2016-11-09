@@ -47,6 +47,7 @@ public class RefreshAction extends ActionSupport {
 		System.out.println(user.getName());
 		Order o = new Order();
 		Iterator<Order> it = order.iterator();
+		System.out.println(user.getUsername());
 		while (it.hasNext()) {
 
 			o = it.next();
@@ -85,6 +86,7 @@ public class RefreshAction extends ActionSupport {
 		JSON_Object.put("status", status);
 		out.write(JSON_Object.toString());
 		out.flush();
+		System.out.println("Test----------------");
 		out.close();
 
 	}
