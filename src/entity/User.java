@@ -13,6 +13,7 @@ public class User {
 	private int money;
 	private Date birthday;
 	private String cellphone;
+	private String photo;
 
 	public User() {
 
@@ -110,5 +111,13 @@ public class User {
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 }

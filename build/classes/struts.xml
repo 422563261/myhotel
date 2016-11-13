@@ -53,8 +53,17 @@
 		<action name="saveOrder" class="action.order.OrderAction" method="saveOrder">
 		</action>
 		<action name="getOrder" class="action.order.OrderAction" method="getOrder" >
-
 		</action>
+		     <action name="fileupload" class="action.user.ImageUploadAction" >
+         <result>/success.jsp</result>
+         <!-- 拦截器设置上传文件大小类型 -->
+         <interceptor-ref name="defaultStack">
+			<!--文件大小-->
+       		 <param name="fileUpload.maximumSize">1000000000</param>
+			<!--文件类型-->
+       		 <param name="fileUpload.allowedTypesSet">image/jpg,image/jpeg,image/png</param>
+   		 </interceptor-ref>
+        </action>  
 	</package>
 
 

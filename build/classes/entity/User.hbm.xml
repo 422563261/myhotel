@@ -35,5 +35,8 @@
         <property name="cellphone" type="java.lang.String">
             <column name="CELLPHONE" />
         </property>
+        <property name="photo" type="java.lang.String">
+            <column name="PHOTO" />
+        </property>
     </class>
 </hibernate-mapping>

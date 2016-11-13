@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -57,14 +58,18 @@ public class CheckAction extends ActionSupport {
 		User u = new User();
 		Iterator<User> it = list.iterator();
 		PrintWriter out = response.getWriter();
-
+		JSONArray Json_array = new JSONArray();
 		while (it.hasNext()) {
 
 			u = it.next();
 			if (u.getUsername().equals(username)) {
 				status = 0;
 				JSON_Object.put("status", status);
-				out.write(JSON_Object.toString());
+				Json_array.add(JSON_Object);
+				JSON_Object = new JSONObject();
+				
+				JSON_Object.put("content", Json_array.toJSONString());
+				out.write(JSON_Object.toJSONString());
 				out.flush();
 				out.close();
 				
@@ -73,6 +78,9 @@ public class CheckAction extends ActionSupport {
 		}
 		status = 1;
 		JSON_Object.put("status", status);
+		Json_array.add(JSON_Object);
+		JSON_Object = new JSONObject();
+		JSON_Object.put("content", Json_array.toJSONString());
 		out.write(JSON_Object.toString());
 		out.flush();
 		out.close();

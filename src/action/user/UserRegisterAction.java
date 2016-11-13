@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -53,21 +54,29 @@ public class UserRegisterAction extends ActionSupport {
 		List<User> list = userService.findAll();
 		JSONObject JSON_Object = null;
 		JSON_Object = new JSONObject();
+		JSONArray Json_array = new JSONArray();
 		int status;
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
 		PrintWriter out = response.getWriter();
+		
 		if (password != null && password != null) {
 			status = 1;
 			userService.save(user);
 			JSON_Object.put("status", status);
 			JSON_Object.put("username", username);
+			Json_array.add(JSON_Object);
+			JSON_Object = new JSONObject();
+			JSON_Object.put("content", Json_array.toJSONString());
 			out.write(JSON_Object.toString());
 			out.close();
 		} else {
 			status = 0;
 			JSON_Object.put("status", status);
+			Json_array.add(JSON_Object);
+			JSON_Object = new JSONObject();
+			JSON_Object.put("content", Json_array.toJSONString());
 			out.write(JSON_Object.toString());
 			out.close();
 		}
