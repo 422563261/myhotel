@@ -13,15 +13,15 @@ $(function(){
 				dataType: 'json',
 				data: {},
 				success:function(data){
-					console.log(data);
-					// if(data.status=="1"){
-					// 	$username = data.username;
-					// 	$('.username').text($username);
-					// }
-					// else{
-					// 	alert("你还未登录！");
-					// 	location.href="/Hotel/WebApp/index.html"
-					//}
+					var data = $.parseJSON(data.content);
+					if(data[0].status=="1"){
+						$username = data[1].username;
+						$('.username').text($username);
+					}
+					else{
+						alert("你还未登录！");
+						location.href="/Hotel/WebApp/index.html"
+					}
 				},
 				error:function(){
 					$('#username').text("NULL");

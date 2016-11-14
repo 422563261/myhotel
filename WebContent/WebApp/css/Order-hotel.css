@@ -1,0 +1,80 @@
+html {
+  font-size: 100px;
+  cursor: default;
+}
+.header {
+  min-width: 12rem;
+  height: .6rem;
+  line-height: .6rem;
+  background-color: #f2ebec;
+}
+.header .header-center {
+  width: 11.9rem;
+  margin: 0 auto;
+}
+.header .header-center li {
+  float: left;
+  font-size: .16rem;
+}
+.header .header-center li + li {
+  float: right;
+}
+.header .header-center .logo-bar {
+  margin-top: .125rem;
+  line-height: .35rem;
+}
+.header .header-center .logo {
+  width: .35rem;
+  height: .35rem;
+  float: left;
+}
+.header .header-center .hotel-name {
+  display: inline-block;
+  font-size: .24rem;
+  font-weight: bold;
+  color: #7f1f59;
+  margin-left: .1rem;
+}
+.header .header-center .register,
+.header .header-center .login {
+  font-size: .14rem;
+  font-weight: bold;
+  margin: 0 .1rem;
+}
+.header .header-center .register a,
+.header .header-center .login a {
+  color: #000;
+}
+.header .header-center .register a:hover,
+.header .header-center .login a:hover {
+  color: #7f1f59;
+}
+.bodyer {
+  min-width: 12rem;
+}
+.bodyer .bodyer-center {
+  width: 11.9rem;
+  margin: 0 auto;
+}
+.bodyer .bodyer-center .dir {
+  overflow: hidden;
+  padding: .2rem 0 .1rem 0;
+  height: .2rem;
+  line-height: .2rem;
+}
+.bodyer .bodyer-center .dir li {
+  float: left;
+  margin-right: .15rem;
+  font-size: .12rem;
+}
+.bodyer .bodyer-center .dir li a {
+  color: #000;
+  font-size: .12rem;
+}
+.bodyer .bodyer-center .dir a:hover {
+  color: #7a0b64;
+}
+.bodyer .bodyer-center .dir li:last-child a:hover {
+  color: #000;
+  cursor: text;
+}

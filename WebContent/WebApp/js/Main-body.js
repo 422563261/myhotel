@@ -13,14 +13,10 @@ $(function(){
 		"data": {},
 		"success":function(data){
 			var data = $.parseJSON(data.content);
-			console.log(data);
-			console.log(typeof data);
-			console.log(data[1].name);
-
 			 if(data[0].status=="1"){
 			 	$('.register').remove();
 			 	$('.login').remove()
-			 	$('.float-info').before("<li class='user'><a href='#'>你好，"+data[2].username+"</a></li>");
+			 	$('.float-info').before("<li class='user'><a href='#'>你好，"+data[1].username+"</a></li>");
 			 }
 		},
 		"error":function(){
@@ -142,7 +138,8 @@ $(function(){
    			"dataType":"json",
    			"data":{"username":$username,"password":$password},
    			"success":function(data){
-   				if(data.status=="1"){
+   				var data = $.parseJSON(data.content);
+   				if(data[0].status=="1"){
    					$('#box_up').before('<p class="login-success">登陆成功！</p>');
    					setTimeout(function(){   						
    						location.reload();

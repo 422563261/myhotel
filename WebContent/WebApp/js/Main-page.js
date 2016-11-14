@@ -1,11 +1,11 @@
 $(function(){
 	$.ajax({
-		url: '/Hotel/WebApp/MainBody.html',
+		url: '/Hotel/WebApp/Main-body.html',
 		type: 'GET',
 		dataType: 'html',
 		success:function(data){
 			$('body').append(data);
-			$('.hidden').before("<script src='/Hotel/WebApp/js/MainBody.js'><script>");
+			$('.hidden').before("<script src='/Hotel/WebApp/js/Main-body.js'><script>");
 		}
 	});
 })

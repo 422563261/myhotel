@@ -13,9 +13,10 @@ $(function(){
 				dataType: 'json',
 				data: {},
 				success:function(data){
-					if(data.status=="1"){
-						$username = data.username;
-						$money = data.money;
+					var data = $.parseJSON(data.content);
+					if(data[0].status=="1"){
+						$username = data[1].username;
+						$money = data[1].money;
 					}
 					else{
 						alert("你还未登录！");
@@ -55,15 +56,36 @@ $(function(){
 				data: {},
 				success:function(data){
 					$('body').append(data);
-					$('.head').before("<script src='/Hotel/WebApp/js/My-page.js'></script>");
 					$("#money").text($money);
 					$('.username').text($username);
+					$('.state').on('click', 'li', function(event) {
+						event.preventDefault();
+						$(this).css({
+							"color": "#651c4d",
+							"border-top": ".02rem solid #d987bb",
+							"margin-bottom": "-.01rem",
+							"background": "#fff",
+							"line-height": ".39rem"
+						}).siblings().css({
+							"color": "#000",
+							"border-top": ".01rem solid #eeeae9",
+							"margin-bottom": "0rem",
+							"background": "#fcfafa",
+							"line-height":".41rem"
+						})
+					});
 					$.ajax({
-						url: '',
+						url: '/Hotel/WebApp/getOrder.action',
 						type: 'GET',
 						dataType: 'json',
 						data: {},
-						success:function(data){}
+						success:function(data){
+							var data =  $.parseJSON(data.content);
+							$("#orderId").text(data[1].orderId);
+							$("#roomId").text(data[1].roomId);
+							$("#name").text(data[1].name);
+							$("#totalMoney").text("¥" + data[1].totalMoney);
+						}
 					})
 				}
 			})
