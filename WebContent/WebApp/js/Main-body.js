@@ -163,6 +163,7 @@ $(function(){
    			"type":"GET",
    			"url":"/Hotel/register.action",
    			"dataType":"json",
+			"contentType":"charset=UTF-8",
    			"data":{"username":$register_username,"password":$register_password},
    			"beforeSend":function(){
    				if($('.error').text()!=""||$register_username==""||$register_password==""||$register_password_confirm==""){
@@ -173,7 +174,7 @@ $(function(){
    				$('#box_up_r').before('<p class="login-success">注册成功！</p>');
 				setTimeout(function(){   						
 					location.reload();
-				},500)
+				},11500)
    			},
    			"error":function(){
    				alert("网络不畅，请稍后再试！");
@@ -200,10 +201,11 @@ $(function(){
 				"dataType": 'json',
 				"data": {"username": $username},
 				"success":function(data){
-					if(data.status=="0"){
+					var data = $.parseJSON(data.content)
+					if(data[0].status=="0"){
 						$('.error-username').text('用户名已被占用');
 					}
-					else if(data.status=="1"){
+					else if(data[0].status=="1"){
 						$('.error-username').text('');
 					}
 				}

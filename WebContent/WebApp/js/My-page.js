@@ -85,10 +85,12 @@ $(function(){
 						data: {},
 						success:function(data){
 							var data =  $.parseJSON(data.content);
-							$("#orderId").text(data[1].orderId);
-							$("#roomId").text(data[1].roomId);
-							$("#name").text(data[1].name);
-							$("#totalMoney").text("¥" + data[1].totalMoney);
+							$("#bookDay").text(data[0].bookDay);
+							$("#orderId").text(data[0].orderId);
+							$("#roomId").text(data[0].roomId);
+							$("#name").text(data[0].name);
+							$("#totalMoney").text("¥" + data[0].totalMoney);
+							$("#status").text(data[0].status);
 						}
 					})
 				}
