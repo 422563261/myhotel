@@ -13,14 +13,18 @@ public class Order {
 	private int totalMoney;
 	private Date start_day;
 	private Date final_day;
+	private Date book_day;
 	private String order_status;
 	
 	public Order(){
 		
 	}
 	
-	public Order(int id, String orderId, String name, String roomId, int totalMoney, Date start_day,
-			Date final_day, String order_status) {
+
+
+	public Order(int id, String orderId, String name, String roomId, int totalMoney, Date start_day, Date final_day,
+			Date book_day, String order_status) {
+	
 		this.id = id;
 		this.orderId = orderId;
 		this.name = name;
@@ -28,8 +32,11 @@ public class Order {
 		this.totalMoney = totalMoney;
 		this.start_day = start_day;
 		this.final_day = final_day;
+		this.book_day = book_day;
 		this.order_status = order_status;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -79,7 +86,16 @@ public class Order {
 	public void setOrder_Status(String order_status) {
 		this.order_status = order_status;
 	}
-	
+
+
+
+	public Date getBook_day() {
+		return book_day;
+	}
+
+	public void setBook_day(Date book_day) {
+		this.book_day = book_day;
+	}
 	
 	
 }

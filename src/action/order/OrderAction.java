@@ -1,8 +1,9 @@
 package action.order;
 
-
 import java.io.PrintWriter;
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,11 +25,7 @@ public class OrderAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Date startDay;
-	private Date finalDay;
-	private String orderStatus;
-	private int totalMoney;
-	private String roomId;
+	
 	private OrderService orderService;
 
 	public OrderService getOrderService() {
@@ -39,28 +36,9 @@ public class OrderAction extends ActionSupport {
 		this.orderService = orderService;
 	}
 
-	public void saveOrder() throws Exception {
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		HttpServletResponse response = ServletActionContext.getResponse();
-		JSONObject JSON_Object = new JSONObject();
-		User user = (User) session.getAttribute("user");
-		Order order = new Order();
-		int status;
-		order.setName(user.getName());
-		order.setStart_day(startDay);
-		order.setFinal_day(finalDay);
-		order.setRoomId(roomId);
-		order.setTotalMoney(totalMoney);
-		order.setOrder_Status(orderStatus);
-		status = 1;
-		JSON_Object.put("status", status);
-		PrintWriter out = response.getWriter();
-		out.write(JSON_Object.toString());
-		out.flush();
-		out.close();
 
-	}
 	public void getOrder() throws Exception {
+		
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("text/html; charset=utf-8");
@@ -69,29 +47,35 @@ public class OrderAction extends ActionSupport {
 		User user = (User) session.getAttribute("user");
 
 		List<Order> order = orderService.findAllOrders();
+		
 		PrintWriter out = response.getWriter();
-		int status;
 		JSONArray Json_array = new JSONArray();
-	
+		String s = null;
+		String f = null;
+		String b = null;
 		Order o = new Order();
 		Iterator<Order> it = order.iterator();
-		
+
 		while (it.hasNext()) {
 
 			o = it.next();
 			if (o.getName().equals(user.getName())) {
-
-				status = 1;
-				JSON_Object.put("status", status);
-				Json_array.add(JSON_Object);
-				JSON_Object = new JSONObject();
+				 DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				s = sdf.format(o.getStart_day());
+				f = sdf.format(o.getFinal_day());
+				System.out.println(s);
+				b = sdf.format(o.getBook_day());
+				System.out.println("ddddddddddddd");
+				
 				{
 					JSON_Object.put("orderId", o.getOrderId());
 					JSON_Object.put("name", o.getName());
 					JSON_Object.put("roomId", o.getRoomId());
-					JSON_Object.put("startDay", o.getStart_day());
-					JSON_Object.put("finalDay", o.getFinal_day());
+					JSON_Object.put("startDay", s);
+					JSON_Object.put("finalDay", f);
+					JSON_Object.put("bookDay", b);
 					JSON_Object.put("totalMoney", o.getTotalMoney());
+					JSON_Object.put("Status", o.getOrder_Status());
 				}
 				Json_array.add(JSON_Object);
 				JSON_Object = new JSONObject();
@@ -102,17 +86,10 @@ public class OrderAction extends ActionSupport {
 				out.close();
 				return;
 
-
 			}
 		}
-		status = 0;
-		JSON_Object.put("status", status);
-		out.write(JSON_Object.toString());
-		out.flush();
-		System.out.println("Test----------------");
-		out.close();
-		
-		
+
+
 	}
 
 }

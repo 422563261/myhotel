@@ -29,5 +29,8 @@
         <property name="order_Status" type="java.lang.String">
             <column name="ORDER_STATUS" />
         </property>
+        <property name="book_day" type="java.util.Date">
+        	<column name="BOOK_DAY" />
+        </property>
     </class>
 </hibernate-mapping>
