@@ -20,7 +20,7 @@ $(function(){
 					}
 					else{
 						alert("你还未登录！");
-						location.href="/Hotel/WebApp/index.html"
+						location.href="/Hotel/WebApp/Main-page.html"
 					}
 				},
 				error:function(){
@@ -35,13 +35,13 @@ $(function(){
 					dataType: 'json',
 					data: {},
 					success:function(){
-						location.href="/Hotel/WebApp/index.html"
+						location.href="/Hotel/WebApp/Main-page.html"
 					}
 				})
 			});
 			$("#logo").on('click',  function(event) {
 				event.preventDefault();
-				location.href="/Hotel/WebApp/index.html"
+				location.href="/Hotel/WebApp/Main-page.html"
 			});
 			$("#slogan").on('click',  function(event) {
 				event.preventDefault();

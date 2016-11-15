@@ -3,6 +3,7 @@ package action.user;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -49,8 +50,12 @@ public class UserRegisterAction extends ActionSupport {
 	}
 
 	public void register() throws Exception {
-
+		
 		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest re = ServletActionContext.getRequest();
+		re.setCharacterEncoding("utf-8");
+		System.out.println(username);
+		response.setContentType("text/html; charset=utf-8");
 		List<User> list = userService.findAll();
 		JSONObject JSON_Object = null;
 		JSON_Object = new JSONObject();
@@ -66,11 +71,14 @@ public class UserRegisterAction extends ActionSupport {
 			userService.save(user);
 			JSON_Object.put("status", status);
 			JSON_Object.put("username", username);
+			JSON_Object.put("xx", "123");
 			Json_array.add(JSON_Object);
 			JSON_Object = new JSONObject();
 			JSON_Object.put("content", Json_array.toJSONString());
 			out.write(JSON_Object.toString());
+			System.out.println("aaaaaaaa");
 			out.close();
+			
 		} else {
 			status = 0;
 			JSON_Object.put("status", status);
