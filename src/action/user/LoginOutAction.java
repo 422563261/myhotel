@@ -22,6 +22,7 @@ public class LoginOutAction extends ActionSupport{
 		
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
+		System.out.println("loginOutAction"+response.getCharacterEncoding());
 		session.setAttribute("user", null);
 		JSONObject JSON_Object = new JSONObject();
 		JSONArray Json_array = new JSONArray();

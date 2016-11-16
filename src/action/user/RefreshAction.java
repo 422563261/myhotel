@@ -36,14 +36,18 @@ public class RefreshAction extends ActionSupport {
 	public void refresh() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("text/html; charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
 		response.setHeader("Access-Control-Allow-Origin", "*");
+		
+		System.out.println("refreshAction"+response.getCharacterEncoding());
 		JSONObject JSON_Object = new JSONObject();
 		User user = (User) session.getAttribute("user");
 		PrintWriter out = response.getWriter();
 		int status;
 		JSONArray Json_array = new JSONArray();
+		
 		System.out.println(user.getUsername());
+		
 		status = 1;
 		JSON_Object.put("status", status);
 		Json_array.add(JSON_Object);

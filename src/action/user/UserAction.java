@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -52,29 +53,28 @@ public class UserAction extends ActionSupport {
 
 	public void login() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
+		HttpServletRequest res = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		List<User> list = userService.findAll();
-
+		String str = new String(res.getParameter("username").getBytes("iso-8859-1"),"utf-8");
 		JSONObject JSON_Object = null;
-
+		System.out.println("userAction+"+response.getCharacterEncoding());
 		JSON_Object = new JSONObject();
 		int status;
 		User u = new User();
 		Iterator<User> it = list.iterator();
 		PrintWriter out = response.getWriter();
-
+		
 		JSONArray Json_array = new JSONArray();
 		while (it.hasNext()) {
-			System.out.println("username: " + u.getUsername() + "password: " + u.getPassword());
-			System.out.println("Name: " + u.getName());
 			u = it.next();
-			if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
-
+			if (u.getUsername().equals(str) && u.getPassword().equals(password)) {
+				
 				status = 1;
 				session.setAttribute("user", u);
 				// ∑≈»Îjsonarray
 				JSON_Object.put("status", status);
-				JSON_Object.put("username", username);
+				JSON_Object.put("username", u.getUsername());
 
 				Json_array.add(JSON_Object);
 				JSON_Object = new JSONObject();

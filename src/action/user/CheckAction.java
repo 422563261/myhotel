@@ -51,6 +51,7 @@ public class CheckAction extends ActionSupport {
 	public void check() throws Exception {
 
 		HttpServletResponse response = ServletActionContext.getResponse();
+		System.out.println("checkAction"+response.getCharacterEncoding());
 		List<User> list = userService.findAll();
 		JSONObject JSON_Object = null;
 		JSON_Object = new JSONObject();

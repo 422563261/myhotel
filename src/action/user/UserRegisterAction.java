@@ -50,26 +50,20 @@ public class UserRegisterAction extends ActionSupport {
 	}
 
 	public void register() throws Exception {
-<<<<<<< HEAD
+
 		HttpServletResponse response = ServletActionContext.getResponse();
-		HttpServletRequest res = ServletActionContext.getRequest();
-		String str = new String(res.getParameter("username").getBytes("iso-8859-1"),"utf-8");
-		System.out.println(str);
-=======
 		
-		HttpServletResponse response = ServletActionContext.getResponse();
-		HttpServletRequest re = ServletActionContext.getRequest();
-		re.setCharacterEncoding("utf-8");
-		System.out.println(username);
+		HttpServletRequest res = ServletActionContext.getRequest();
+		//¶þ´Î±àÂë×ª»»
+		String str = new String(res.getParameter("username").getBytes("iso-8859-1"),"utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		List<User> list = userService.findAll();
->>>>>>> b04e99b0a3a624fd8c57d844e90e0dce2496e8be
+		
 		JSONObject JSON_Object = null;
 		JSON_Object = new JSONObject();
 		JSONArray Json_array = new JSONArray();
 		int status;
 		User user = new User();
-		user.setUsername(username);
+		user.setUsername(str);
 		user.setPassword(password);
 		PrintWriter out = response.getWriter();
 		
@@ -77,17 +71,14 @@ public class UserRegisterAction extends ActionSupport {
 			status = 1;
 			userService.save(user);
 			JSON_Object.put("status", status);
-<<<<<<< HEAD
+
 			JSON_Object.put("username", str);
-=======
-			JSON_Object.put("username", username);
-			JSON_Object.put("xx", "123");
->>>>>>> b04e99b0a3a624fd8c57d844e90e0dce2496e8be
+
 			Json_array.add(JSON_Object);
 			JSON_Object = new JSONObject();
 			JSON_Object.put("content", Json_array.toJSONString());
 			out.write(JSON_Object.toString());
-			System.out.println("aaaaaaaa");
+			
 			out.close();
 			
 		} else {

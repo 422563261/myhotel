@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -41,6 +42,7 @@ public class OrderAction extends ActionSupport {
 		
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
 		response.setContentType("text/html; charset=utf-8");
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		JSONObject JSON_Object = new JSONObject();
@@ -63,10 +65,10 @@ public class OrderAction extends ActionSupport {
 				 DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				s = sdf.format(o.getStart_day());
 				f = sdf.format(o.getFinal_day());
-				System.out.println(s);
 				b = sdf.format(o.getBook_day());
-				System.out.println("ddddddddddddd");
-				
+				//String os = o.getOrder_Status();
+				//String orderStatus = new String(request.getParameter("").getBytes("iso-8859-1"),"utf-8");
+				System.out.println(s);
 				{
 					JSON_Object.put("orderId", o.getOrderId());
 					JSON_Object.put("name", o.getName());
