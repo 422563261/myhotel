@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -36,8 +37,10 @@ public class RefreshAction extends ActionSupport {
 	public void refresh() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest res = ServletActionContext.getRequest();
 		response.setCharacterEncoding("UTF-8");
-		
+		res.setCharacterEncoding("UTF-8");
+		System.out.println(res.getCharacterEncoding());
 		System.out.println("refreshAction"+response.getCharacterEncoding());
 		JSONObject JSON_Object = new JSONObject();
 		User user = (User) session.getAttribute("user");

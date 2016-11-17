@@ -55,7 +55,7 @@ public class UserRegisterAction extends ActionSupport {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		
 		HttpServletRequest res = ServletActionContext.getRequest();
-		//���α���ת��
+
 		String str =  URLDecoder.decode(res.getParameter("username"), "UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");

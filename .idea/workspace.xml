@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40226947-7cdf-4b95-8f14-193569cae146" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/action/user/UserAction.class" afterPath="$PROJECT_DIR$/build/classes/action/user/UserAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/UserAction.java" afterPath="$PROJECT_DIR$/src/action/user/UserAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WebApp/My-body.html" afterPath="$PROJECT_DIR$/WebContent/WebApp/My-body.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WebApp/js/Main-body.js" afterPath="$PROJECT_DIR$/WebContent/WebApp/js/Main-body.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/CheckAction.java" afterPath="$PROJECT_DIR$/src/action/user/CheckAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WebApp/js/My-hotel.js" afterPath="$PROJECT_DIR$/WebContent/WebApp/js/My-hotel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/RefreshAction.java" afterPath="$PROJECT_DIR$/src/action/user/RefreshAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/UserRegisterAction.java" afterPath="$PROJECT_DIR$/src/action/user/UserRegisterAction.java" />
     </list>
@@ -28,14 +27,14 @@
     <favorites_list name="Hotel" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5845272">
+    <splitter split-orientation="horizontal" split-proportion="0.50238776">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Order-hotel.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebContent/WebApp/Order-hotel.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2536023">
-                  <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+                <state vertical-scroll-proportion="0.49325338">
+                  <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
                   <folding>
                     <element signature="n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -71,11 +70,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="My-body.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="My-body.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebContent/WebApp/My-body.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
+                <state vertical-scroll-proportion="0.39769453">
+                  <caret line="133" column="63" selection-start-line="133" selection-start-column="63" selection-end-line="133" selection-end-column="63" />
                   <folding />
                 </state>
               </provider>
@@ -95,7 +94,7 @@
             <entry file="file://$PROJECT_DIR$/WebContent/WebApp/js/My-hotel.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+                  <caret line="85" column="64" selection-start-line="85" selection-start-column="64" selection-end-line="85" selection-end-column="64" />
                   <folding />
                 </state>
               </provider>
@@ -105,9 +104,15 @@
             <entry file="file://$PROJECT_DIR$/WebContent/WebApp/js/Main-body.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+                  <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
                   <folding>
-                    <marker date="1479352965000" expanded="true" signature="4514:4554" placeholder="{...}" />
+                    <marker date="1479372432000" expanded="true" signature="4866:4869" placeholder="//..." />
+                    <marker date="1479372432000" expanded="true" signature="4866:5289" placeholder="{...}" />
+                    <marker date="1479372432000" expanded="true" signature="4876:5286" placeholder="{...}" />
+                    <marker date="1479372432000" expanded="true" signature="4922:5281" placeholder="{&quot;url&quot;: '/Hotel/check.action'...}" />
+                    <marker date="1479372432000" expanded="true" signature="5066:5276" placeholder="{...}" />
+                    <marker date="1479372432000" expanded="true" signature="5139:5191" placeholder="{...}" />
+                    <marker date="1479372432000" expanded="true" signature="5225:5270" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -133,10 +138,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Main-page.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Main-page.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/WebContent/WebApp/Main-page.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state vertical-scroll-proportion="-0.0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
@@ -153,12 +158,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebContent/WebApp/My-body.html" />
         <option value="$PROJECT_DIR$/WebContent/WebApp/js/My-page.js" />
         <option value="$PROJECT_DIR$/WebContent/WebApp/css/Order-hotel.less" />
+        <option value="$PROJECT_DIR$/WebContent/WebApp/js/Main-body.js" />
         <option value="$PROJECT_DIR$/WebContent/WebApp/Order-hotel.html" />
         <option value="$PROJECT_DIR$/WebContent/WebApp/js/My-hotel.js" />
-        <option value="$PROJECT_DIR$/WebContent/WebApp/js/Main-body.js" />
+        <option value="$PROJECT_DIR$/WebContent/WebApp/My-body.html" />
       </list>
     </option>
   </component>
@@ -545,7 +550,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479352965000" expanded="true" signature="4514:4554" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="4866:4869" placeholder="//..." />
+            <marker date="1479372432000" expanded="true" signature="4866:5289" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="4876:5286" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="4922:5281" placeholder="{&quot;url&quot;: '/Hotel/check.action'...}" />
+            <marker date="1479372432000" expanded="true" signature="5066:5276" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="5139:5191" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="5225:5270" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -596,14 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WebApp/My-body.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WebApp/My-header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -612,32 +615,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WebApp/js/My-hotel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WebApp/Order-hotel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2536023">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding>
-            <element signature="n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WebApp/js/Main-body.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding>
-            <marker date="1479352965000" expanded="true" signature="4514:4554" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="4866:4869" placeholder="//..." />
+            <marker date="1479372432000" expanded="true" signature="4866:5289" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="4876:5286" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="4922:5281" placeholder="{&quot;url&quot;: '/Hotel/check.action'...}" />
+            <marker date="1479372432000" expanded="true" signature="5066:5276" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="5139:5191" placeholder="{...}" />
+            <marker date="1479372432000" expanded="true" signature="5225:5270" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -662,6 +651,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WebApp/Order-hotel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49325338">
+          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <folding>
+            <element signature="n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WebApp/js/My-hotel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="64" selection-start-line="85" selection-start-column="64" selection-end-line="85" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WebApp/My-body.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39769453">
+          <caret line="133" column="63" selection-start-line="133" selection-start-column="63" selection-end-line="133" selection-end-column="63" />
           <folding />
         </state>
       </provider>

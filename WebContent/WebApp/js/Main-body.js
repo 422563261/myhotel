@@ -11,12 +11,10 @@ $(function(){
 		"type": 'POST',
 		"dataType": 'json',
 		"data": {},
-		"contentType":"application/x-www-form-urlencoded; charset=UTF-8",
 		"success":function(data){
 			var data = $.parseJSON(data.content);
 			 if(data[0].status=="1"){
 				 console.log(data[1].username);
-				 console.log(data[1].name);
 			 	$('.register').remove();
 			 	$('.login').remove()
 			 	$('.float-info').before("<li class='user'><a href='#'>你好，"+data[1].username+"</a></li>");
@@ -180,7 +178,7 @@ $(function(){
    				$('#box_up_r').before('<p class="login-success">注册成功！</p>');
 				setTimeout(function(){   						
 					location.reload();
-				},11500)
+				},500)
    			},
    			"error":function(){
    				alert("网络不畅，请稍后再试！");
@@ -196,9 +194,9 @@ $(function(){
 		if($username==""){
 			$('.error-username').text('用户名不能为空');
 		}
-//		else if(!$reg1.test($username)) {
-//			$('.error-username').text('用户名不合规范');
-//		}
+		else if(!$reg1.test($username)) {
+			$('.error-username').text('用户名不合规范');
+		}
 		else{
 			$('.error-username').text('');
 			$.ajax({
