@@ -8,12 +8,15 @@ $(function(){
 	//对于用户是否登录的检测请求
 	$.ajax({
 		"url": '/Hotel/WebApp/refresh.action',
-		"type": 'GET',
+		"type": 'POST',
 		"dataType": 'json',
 		"data": {},
+		"contentType":"application/x-www-form-urlencoded; charset=UTF-8",
 		"success":function(data){
 			var data = $.parseJSON(data.content);
 			 if(data[0].status=="1"){
+				 console.log(data[1].username);
+				 console.log(data[1].name);
 			 	$('.register').remove();
 			 	$('.login').remove()
 			 	$('.float-info').before("<li class='user'><a href='#'>你好，"+data[1].username+"</a></li>");
@@ -130,13 +133,14 @@ $(function(){
 
 	//登录事件
 	$('#box_up').on('click',function() {
-		var $username = $("#username").val();
+		var $username = encodeURI($("#username").val());
 		var $password = $("#password").val();
 		$.ajax({
-   			"type":"GET",
+   			"type":"POST",
    			"url":"/Hotel/login.action",
    			"dataType":"json",
    			"data":{"username":$username,"password":$password},
+   			"contentType":"application/x-www-form-urlencoded; charset=UTF-8",
    			"success":function(data){
    				var data = $.parseJSON(data.content);
    				if(data[0].status=="1"){
@@ -171,6 +175,8 @@ $(function(){
    				}
    			},
    			"success":function(data){
+   				var data = $.parseJSON(data.content);
+   				console.log(data[0].username);
    				$('#box_up_r').before('<p class="login-success">注册成功！</p>');
 				setTimeout(function(){   						
 					location.reload();
@@ -186,7 +192,7 @@ $(function(){
 	$('#register_username').on('blur',  function(event) {
 		event.preventDefault();
 		var $username = $(this).val();
-		$register_username = $username;
+		$register_username = encodeURI($username);
 		if($username==""){
 			$('.error-username').text('用户名不能为空');
 		}
@@ -201,7 +207,7 @@ $(function(){
 				"dataType": 'json',
 				"data": {"username": $username},
 				"success":function(data){
-					var data = $.parseJSON(data.content)
+					var data = $.parseJSON(data.content);
 					if(data[0].status=="0"){
 						$('.error-username').text('用户名已被占用');
 					}

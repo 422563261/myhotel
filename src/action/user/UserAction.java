@@ -1,6 +1,7 @@
 package action.user;
 
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.Iterator;
 import java.util.List;
 
@@ -55,10 +56,12 @@ public class UserAction extends ActionSupport {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletRequest res = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
+		res.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		List<User> list = userService.findAll();
-		String str = new String(res.getParameter("username").getBytes("iso-8859-1"),"utf-8");
+		String str =  URLDecoder.decode(res.getParameter("username"), "UTF-8");
 		JSONObject JSON_Object = null;
-		System.out.println("userAction+"+response.getCharacterEncoding());
+		System.out.println("userAction+"+response.getCharacterEncoding()+res.getCharacterEncoding());
 		JSON_Object = new JSONObject();
 		int status;
 		User u = new User();
@@ -67,12 +70,13 @@ public class UserAction extends ActionSupport {
 		
 		JSONArray Json_array = new JSONArray();
 		while (it.hasNext()) {
+			System.out.println(u.getUsername()+"&&"+ username +"&&"+ str);
 			u = it.next();
 			if (u.getUsername().equals(str) && u.getPassword().equals(password)) {
 				
 				status = 1;
 				session.setAttribute("user", u);
-				// ·ÅÈëjsonarray
+				// ï¿½ï¿½ï¿½ï¿½jsonarray
 				JSON_Object.put("status", status);
 				JSON_Object.put("username", u.getUsername());
 

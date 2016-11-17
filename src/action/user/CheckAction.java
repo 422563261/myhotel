@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -51,7 +52,10 @@ public class CheckAction extends ActionSupport {
 	public void check() throws Exception {
 
 		HttpServletResponse response = ServletActionContext.getResponse();
-		System.out.println("checkAction"+response.getCharacterEncoding());
+		HttpServletRequest res = ServletActionContext.getRequest();
+		res.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		System.out.println("checkAction"+response.getCharacterEncoding()+res.getCharacterEncoding());
 		List<User> list = userService.findAll();
 		JSONObject JSON_Object = null;
 		JSON_Object = new JSONObject();
@@ -61,7 +65,7 @@ public class CheckAction extends ActionSupport {
 		PrintWriter out = response.getWriter();
 		JSONArray Json_array = new JSONArray();
 		while (it.hasNext()) {
-
+			System.out.println(u.getUsername()+"&&"+ username );
 			u = it.next();
 			if (u.getUsername().equals(username)) {
 				status = 0;
@@ -79,6 +83,7 @@ public class CheckAction extends ActionSupport {
 		}
 		status = 1;
 		JSON_Object.put("status", status);
+		JSON_Object.put("username", username);
 		Json_array.add(JSON_Object);
 		JSON_Object = new JSONObject();
 		JSON_Object.put("content", Json_array.toJSONString());

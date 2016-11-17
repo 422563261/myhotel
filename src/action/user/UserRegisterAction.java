@@ -1,6 +1,7 @@
 package action.user;
 
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,9 +55,11 @@ public class UserRegisterAction extends ActionSupport {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		
 		HttpServletRequest res = ServletActionContext.getRequest();
-		//¶þ´Î±àÂë×ª»»
-		String str = new String(res.getParameter("username").getBytes("iso-8859-1"),"utf-8");
-		response.setContentType("text/html; charset=utf-8");
+		//ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½×ªï¿½ï¿½
+		String str =  URLDecoder.decode(res.getParameter("username"), "UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		System.out.println(str+res.getCharacterEncoding() + response.getCharacterEncoding());
 		
 		JSONObject JSON_Object = null;
 		JSON_Object = new JSONObject();

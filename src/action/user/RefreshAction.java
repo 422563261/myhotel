@@ -37,7 +37,6 @@ public class RefreshAction extends ActionSupport {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("UTF-8");
-		response.setHeader("Access-Control-Allow-Origin", "*");
 		
 		System.out.println("refreshAction"+response.getCharacterEncoding());
 		JSONObject JSON_Object = new JSONObject();
