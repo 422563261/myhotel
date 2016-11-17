@@ -85,12 +85,16 @@ $(function(){
 						data: {},
 						success:function(data){
 							var data =  $.parseJSON(data.content);
-							$("#bookDay").text(data[0].bookDay);
+							var $startDay = (data[0].startDay).slice(0,4)+"/"+(data[0].startDay).slice(5,7)+"/"+(data[0].startDay).slice(8,10);
+							var $finalDay = (data[0].finalDay).slice(0,4)+"/"+(data[0].finalDay).slice(5,7)+"/"+(data[0].finalDay).slice(8,10);
 							$("#orderId").text(data[0].orderId);
 							$("#roomId").text(data[0].roomId);
 							$("#name").text(data[0].name);
 							$("#totalMoney").text("¥" + data[0].totalMoney);
-							$("#status").text(data[0].status);
+							$("#status").text(data[0].Status);
+							$("#bookDay").text(data[0].bookDay);
+							$("#startDay").text($startDay);
+							$("#finalDay").text($finalDay);
 						}
 					})
 				}
