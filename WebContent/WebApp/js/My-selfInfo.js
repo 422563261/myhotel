@@ -66,7 +66,7 @@ $(function(){
 	});
 	$("#img_up").on('change',  function(event) {
 		event.preventDefault();
-		$(this).ajaxSubmit({
+		$("#img_file").ajaxSubmit({
 			url:"/Hotel/WebApp/fileupload.action",
 			type:"POST",
 			dataType:"json",
@@ -75,6 +75,14 @@ $(function(){
 				$(".img-up img").prop("src",data[0].src);
 			}
 		})
-
 	});
+	$("#saveUser").ajaxForm({
+		url:"/Hotel/WebApp/saveUser.action",
+		type:"POST",
+		dataType:"json",
+		success:function(data){
+			var data = $.parseJSON(data.content);
+			console.log(data.status);
+		}
+	})
 })
