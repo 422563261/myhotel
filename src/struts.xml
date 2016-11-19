@@ -54,6 +54,10 @@
 			<result name="success"></result>
 			<result name="input"></result>
 		</action>
+		<action name="getUser" class="action.user.UserCenter">
+			<result name="success"></result>
+			<result name="input"></result>
+		</action>
 		<action name="refresh" class="action.user.RefreshAction"
 			method="refresh">
 		</action>

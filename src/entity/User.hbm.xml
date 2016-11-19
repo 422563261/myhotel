@@ -38,5 +38,8 @@
         <property name="photo" type="java.lang.String">
             <column name="PHOTO" />
         </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
     </class>
 </hibernate-mapping>

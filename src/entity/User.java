@@ -14,13 +14,22 @@ public class User {
 	private Date birthday;
 	private String cellphone;
 	private String photo;
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public User() {
 
 	}
 
 	public User(int id, String username, String password, String name, String iDCard_number, String address, String sex,
-			int money, Date birthday, String cellphone) {
+			int money, Date birthday, String cellphone,String status) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -31,6 +40,7 @@ public class User {
 		this.money = money;
 		this.birthday = birthday;
 		this.cellphone = cellphone;
+		this.status = status;
 	}
 
 	public int getId() {

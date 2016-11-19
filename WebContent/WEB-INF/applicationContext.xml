@@ -121,6 +121,7 @@
 	<bean id="saveAction" class="action.user.UserSave" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
+	
 	<!-- orderAction -->
 	<bean id="orderAction" class="action.order.OrderAction" scope="prototype">
 		<property name="orderService" ref="orderService"></property>
