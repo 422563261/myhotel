@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
-import org.springframework.http.HttpRequest;
+
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -25,6 +25,30 @@ public class UserSave extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private UserService userService;
 	private String cellphone;
+	public String getCellphone() {
+		return cellphone;
+	}
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getIdCard() {
+		return idCard;
+	}
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
 	private String name;
 	private String sex;
 	private String idCard;
@@ -36,21 +60,27 @@ public class UserSave extends ActionSupport{
 	}
 	@Override
 	public String execute() throws Exception {
+		
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		System.out.println("++++++++++");
 		String n = URLDecoder.decode(request.getParameter("name"), "UTF-8");
+		System.out.println("++++++++++");
 		User user = (User)session.getAttribute("user");
 		PrintWriter out =  response.getWriter();
 		JSONObject JSON_Object = new JSONObject();
 		int status;
 		JSONArray Json_array = new JSONArray();
+		System.out.println(n+sex+cellphone+idCard);
 		if(user!=null){
 			user.setCellphone(cellphone);
 			user.setSex(sex);
 			user.setName(n);
 			user.setIDCard_number(idCard);
+			System.out.println(n+sex+cellphone+idCard);
 			this.userService.update(user);
 			status = 1;
 			JSON_Object.put("status", status);
