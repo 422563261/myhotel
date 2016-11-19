@@ -82,7 +82,29 @@ $(function(){
 		dataType:"json",
 		success:function(data){
 			var data = $.parseJSON(data.content);
-			console.log(data.status);
+			if (data[0].status==1){
+				location.reload();
+			}
+		}
+	});
+
+	$.ajax({
+		url:"/Hotel/WebApp/getUser.action",
+		type:"POST",
+		dataType:"json",
+		success:function(data){
+			var data = $.parseJSON(data.content);
+			if (data[0].userStatus == "0"){
+				$("#username").val(data[0].name).prop("disabled","disabled").css("border","none");
+				$("#id_number").val(data[0].idCard).prop("disabled","disabled").css("border","none");
+
+				$("#choose_id").before("<input type='text' style='border: none' value='居民身份证'>").remove();
+				$("#choose_sex").before("<input type='text' style='border: none' value='"+data[0].sex+"'>").remove();
+
+				$("#nophoto").prop("src",data[0].image);
+				$("#phone_number").val(data[0].cellphone);
+
+			}
 		}
 	})
 })
