@@ -20,7 +20,7 @@ import service.UserService;
 
 public class UserAction extends ActionSupport {
 
-	/**
+	/*
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -70,13 +70,13 @@ public class UserAction extends ActionSupport {
 		
 		JSONArray Json_array = new JSONArray();
 		while (it.hasNext()) {
-			System.out.println(u.getUsername()+"&&"+ username +"&&"+ str);
+			
 			u = it.next();
 			if (u.getUsername().equals(str) && u.getPassword().equals(password)) {
 				
 				status = 1;
 				session.setAttribute("user", u);
-				// ����jsonarray
+				
 				JSON_Object.put("status", status);
 				JSON_Object.put("username", u.getUsername());
 

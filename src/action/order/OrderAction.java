@@ -66,8 +66,7 @@ public class OrderAction extends ActionSupport {
 				s = sdf.format(o.getStart_day());
 				f = sdf.format(o.getFinal_day());
 				b = sdf.format(o.getBook_day());
-				//String os = o.getOrder_Status();
-				//String orderStatus = new String(request.getParameter("").getBytes("iso-8859-1"),"utf-8");
+				
 				System.out.println(s);
 				{
 					JSON_Object.put("orderId", o.getOrderId());

@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 
-	<constant name="struts.i18n.encoding" value="GBK"></constant>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 
 	<package name="hotel" extends="struts-default,json-default"
 		namespace="/">
@@ -63,7 +63,7 @@
 			method="getOrder">
 		</action>
 		<action name="fileupload" class="action.user.ImageUploadAction">
-			<result>/success.jsp</result>
+			<result name="success"></result>
 			<!-- 拦截器设置上传文件大小类型 -->
 			<interceptor-ref name="defaultStack">
 				<!--文件大小 -->
