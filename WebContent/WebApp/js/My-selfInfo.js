@@ -20,7 +20,7 @@ $(function(){
 					}
 					else{
 						alert("你还未登录！");
-						location.href="/Hotel/WebApp/index.html"
+						location.href="/Hotel/WebApp/Main-page.html"
 					}
 				},
 				error:function(){
@@ -35,13 +35,13 @@ $(function(){
 					dataType: 'json',
 					data: {},
 					success:function(){
-						location.href="/Hotel/WebApp/index.html"
+						location.href="/Hotel/WebApp/Main-page.html"
 					}
 				})
 			});
 			$("#logo").on('click',  function(event) {
 				event.preventDefault();
-				location.href="/Hotel/WebApp/index.html"
+				location.href="/Hotel/WebApp/Main-page.html"
 			});
 			$("#slogan").on('click',  function(event) {
 				event.preventDefault();
@@ -66,6 +66,15 @@ $(function(){
 	});
 	$("#img_up").on('change',  function(event) {
 		event.preventDefault();
+		$(this).ajaxSubmit({
+			url:"/Hotel/WebApp/fileupload.action",
+			type:"POST",
+			dataType:"json",
+			success:function(data){
+				var data = $.parseJSON(data.content);
+				$(".img-up img").prop("src",data[0].src);
+			}
+		})
 
 	});
 })
