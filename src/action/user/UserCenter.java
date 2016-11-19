@@ -35,7 +35,7 @@ public class UserCenter extends ActionSupport {
 		JSONObject JSON_Object = new JSONObject();
 		int status;
 		JSONArray Json_array = new JSONArray();
-		if (user.getStatus() != null) {
+		if (user.getStatus().equals("0")) {
 			JSON_Object.put("image", user.getPhoto());
 			JSON_Object.put("name", user.getName());
 			JSON_Object.put("idCard", user.getIDCard_number());
@@ -50,7 +50,7 @@ public class UserCenter extends ActionSupport {
 			out.close();
 		}
 		else{
-			status = 0;
+			status = 1;
 			JSON_Object.put("status", status);
 			Json_array.add(JSON_Object);
 			JSON_Object = new JSONObject();

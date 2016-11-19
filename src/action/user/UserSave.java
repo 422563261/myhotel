@@ -77,7 +77,9 @@ public class UserSave extends ActionSupport{
 			user.setSex(sex);
 			user.setName(n);
 			user.setIDCard_number(idCard);
+			user.setStatus("0");
 			this.userService.update(user);
+
 			status = 1;
 			JSON_Object.put("status", status);
 			Json_array.add(JSON_Object);
