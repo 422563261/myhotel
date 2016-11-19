@@ -1,13 +1,17 @@
 package action.user;
 
+import java.io.PrintWriter;
 import java.net.URLDecoder;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.http.HttpRequest;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 
 import entity.User;
@@ -34,15 +38,39 @@ public class UserSave extends ActionSupport{
 	public String execute() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
 		request.setCharacterEncoding("UTF-8");
 		String n = URLDecoder.decode(request.getParameter("name"), "UTF-8");
 		User user = (User)session.getAttribute("user");
+		PrintWriter out =  response.getWriter();
+		JSONObject JSON_Object = new JSONObject();
+		int status;
+		JSONArray Json_array = new JSONArray();
 		if(user!=null){
 			user.setCellphone(cellphone);
 			user.setSex(sex);
 			user.setName(n);
 			user.setIDCard_number(idCard);
 			this.userService.update(user);
+			status = 1;
+			JSON_Object.put("status", status);
+			Json_array.add(JSON_Object);
+			JSON_Object = new JSONObject();
+			JSON_Object.put("content", Json_array.toJSONString());
+			out.write(JSON_Object.toJSONString());
+			out.flush();
+			out.close();
+		}
+		else{
+			status = 0;
+			JSON_Object.put("status", status);
+			Json_array.add(JSON_Object);
+			JSON_Object = new JSONObject();
+			JSON_Object.put("content", Json_array.toJSONString());
+			out.write(JSON_Object.toJSONString());
+			out.flush();
+			out.close();
+			return INPUT;
 		}
 		return SUCCESS;
 	}

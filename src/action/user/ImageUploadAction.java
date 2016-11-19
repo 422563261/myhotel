@@ -1,11 +1,15 @@
 package action.user;
 
 import java.io.File;
+import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 
 import entity.User;
@@ -57,10 +61,16 @@ public class ImageUploadAction extends ActionSupport {
 
 	public String execute() throws Exception {
 		HttpSession session = ServletActionContext.getRequest().getSession();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		JSONObject JSON_Object = new JSONObject();
 		User user = (User) session.getAttribute("user");
+		PrintWriter out = response.getWriter();
+		int status;
+		JSONArray Json_array = new JSONArray();
+		System.out.println(uploadFileFileName);
 		if (uploadFile != null) {
 			// 上传文件存放的目录
-		
+			
 			String dataDir = System.getProperty("user.home")+"\\workspace\\Hotel\\WebContent\\upload\\";
 			String image ="upload\\"+uploadFileFileName;
 			// 上传文件在服务器具体的位置
@@ -69,8 +79,24 @@ public class ImageUploadAction extends ActionSupport {
 			uploadFile.renameTo(savedFile);
 			user.setPhoto(image);
 			this.userService.update(user);
+			status = 1;
+			JSON_Object.put("status", status);
+			Json_array.add(JSON_Object);
+			JSON_Object = new JSONObject();
+			JSON_Object.put("content", Json_array.toJSONString());
+			out.write(JSON_Object.toJSONString());
+			out.flush();
+			out.close();
 
 		} else {
+			status = 0;
+			JSON_Object.put("status", status);
+			Json_array.add(JSON_Object);
+			JSON_Object = new JSONObject();
+			JSON_Object.put("content", Json_array.toJSONString());
+			out.write(JSON_Object.toJSONString());
+			out.flush();
+			out.close();
 			return INPUT;
 		}
 
