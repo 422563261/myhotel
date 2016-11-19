@@ -50,6 +50,9 @@
 		<global-results>
 			<result name="login"></result>
 		</global-results>
+		<action name="saveUser" class="action.user.UserSave">
+			<result name="success"></result>
+		</action>
 		<action name="refresh" class="action.user.RefreshAction"
 			method="refresh">
 		</action>
