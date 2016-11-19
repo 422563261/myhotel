@@ -7,14 +7,58 @@
 	<link rel="stylesheet" href="css/Order-hotel.css">
 </head>
 <body>
+	<div class="hidden">
+	<div class="box" >
+		<div class="box-head">
+			<img src="/Hotel/WebApp/images/hotel_logo_backup.png" >
+			<span class="box-hotel-name">大头青旅</span>
+			<span class="box-hotel-login login-button">登录</span>
+			<img src="/Hotel/WebApp/images/close.png" alt="" class="close">
+			<span class="box-hotel-register register-button">注册</span>
+		</div>
+		<div class="login-box">
+			<div class="box-input">
+				<div class="input-area">
+					<div class="pic phone-img"></div>
+					<input type="text" class="word username" id="username" placeholder="请输入手机号/用户名">
+				</div>
+				<div class="input-area">
+					<div class="pic keyword-img"></div>
+					<input type="password" class="word keyword" id="password" placeholder="请输入密码">
+				</div>
+				<div class="box-up" id="box_up">立即登录</div>
+			</div>
+		</div>
+		<div class="register-box">
+			<div class="box-input">
+				<div class="input-area">
+					<div class="pic phone-img"></div>
+					<input type="text" class="word username" id="register_username" placeholder="请输入手机号/用户名">
+					<span class="error error-username"></span>
+				</div>
+				<div class="input-area">
+					<div class="pic keyword-img"></div>
+					<input type="password" class="word keyword" id="register_password" placeholder="请输入6~18位密码">
+					<span class="error error-password"></span>
+				</div>
+				<div class="input-area">
+					<div class="pic keyword-img"></div>
+					<input type="password" class="word keyword" id="register_password_confirm" placeholder="再次输入确认密码">
+					<span class="error error-password-confirm"></span>
+				</div>
+				<div class="box-up" id="box_up_r">注册</div>
+			</div>
+		</div>
+	</div>
+</div>
 	<div class="header">
 		<div class="header-center">
 			<li class="logo-bar">
 				<img src="images/hotel_logo_backup.png" class="logo">
 				<span class="hotel-name">大头青旅</span>
 			</li>
-			<li class="register"><a href="#">注册</a></li>
-			<li class="login"><a href="#">登录</a></li>
+			<li class="register register-button"><a href="#">注册</a></li>
+			<li class="login login-button"><a href="#">登录</a></li>
 		</div>
 	</div>
 	<div class="bodyer">
@@ -28,7 +72,7 @@
 				<form action="">
 					<li>
 						<lab>城市</lab>
-						<input type="date">
+						<input type="text" value="重庆">
 					</li>
 					<li>
 						<lab>入住日期</lab>
@@ -55,9 +99,6 @@
 			<div class="choice">
 				<span class="choice-name">人数</span>
 				<span class="clean">不限</span>
-				<span class="lab">
-					<input type="checkbox" name="number" id="single"><label for="single">单人间</label>
-				</span>
 				<span class="lab">
 					<input type="checkbox" name="number" id="double"><label for="double">双人间</label>
 				</span>
@@ -88,7 +129,7 @@
 					<input type="checkbox" name="money" id="level300"><label for="level300">￥150-￥300</label>
 				</span>
 				<span class="lab">
-					<input type="checkbox" name="money" id="level500"><label for="level150">￥300-￥500</label>
+					<input type="checkbox" name="money" id="level500"><label for="level500">￥300-￥500</label>
 				</span>
 				<span class="lab">
 					<input type="checkbox" name="money" id="level500_up"><label for="level500_up">￥500以上</label>
@@ -113,6 +154,202 @@
 								<div class="info">
 									<p class="title" id="title">A1</p>
 									<p class="address" id="address">潘阿姨5L</p>
+									<div class="saying">
+										<span class="saying-title">大家说:</span>
+										<span class="content">位置优越</span>
+									</div>
+									<div class="provide">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+
+									</div>
+									<p></p>
+								</div>
+
+							</div>
+							<div class="area">
+								<div class="price">
+									<span>¥</span>
+									<span id="price">233</span>
+								</div>
+								<div class="score">
+									<span id="score">4.8</span><span>/5分</span>
+								</div>
+								<div class="comment">
+									<span>共</span><span id="#comment">5</span><span>条评论</span>
+								</div>
+								<button class="detail">查看详情</button>
+							</div>
+						</div>
+						<div class="hotel">
+							<div class="pic">
+								<img src="images/hotel.jpg" alt="">
+							</div>
+							<div class="hotelBox">
+								<div class="info">
+									<p class="title" id="title">A1</p>
+									<p class="address" id="address">潘阿姨5L</p>
+									<div class="saying">
+										<span class="saying-title">大家说:</span>
+										<span class="content">位置优越</span>
+									</div>
+									<div class="provide">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+
+									</div>
+									<p></p>
+								</div>
+
+							</div>
+							<div class="area">
+								<div class="price">
+									<span>¥</span>
+									<span id="price">233</span>
+								</div>
+								<div class="score">
+									<span id="score">4.8</span><span>/5分</span>
+								</div>
+								<div class="comment">
+									<span>共</span><span id="#comment">5</span><span>条评论</span>
+								</div>
+								<button class="detail">查看详情</button>
+							</div>
+						</div>
+						<div class="hotel">
+							<div class="pic">
+								<img src="images/hotel.jpg" alt="">
+							</div>
+							<div class="hotelBox">
+								<div class="info">
+									<p class="title" id="title">A1</p>
+									<p class="address" id="address">潘阿姨5L</p>
+									<div class="saying">
+										<span class="saying-title">大家说:</span>
+										<span class="content">位置优越</span>
+									</div>
+									<div class="provide">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+
+									</div>
+									<p></p>
+								</div>
+
+							</div>
+							<div class="area">
+								<div class="price">
+									<span>¥</span>
+									<span id="price">233</span>
+								</div>
+								<div class="score">
+									<span id="score">4.8</span><span>/5分</span>
+								</div>
+								<div class="comment">
+									<span>共</span><span id="#comment">5</span><span>条评论</span>
+								</div>
+								<button class="detail">查看详情</button>
+							</div>
+						</div>
+						<div class="hotel">
+							<div class="pic">
+								<img src="images/hotel.jpg" alt="">
+							</div>
+							<div class="hotelBox">
+								<div class="info">
+									<p class="title" id="title">A1</p>
+									<p class="address" id="address">潘阿姨5L</p>
+									<div class="saying">
+										<span class="saying-title">大家说:</span>
+										<span class="content">位置优越</span>
+									</div>
+									<div class="provide">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+
+									</div>
+									<p></p>
+								</div>
+
+							</div>
+							<div class="area">
+								<div class="price">
+									<span>¥</span>
+									<span id="price">233</span>
+								</div>
+								<div class="score">
+									<span id="score">4.8</span><span>/5分</span>
+								</div>
+								<div class="comment">
+									<span>共</span><span id="#comment">5</span><span>条评论</span>
+								</div>
+								<button class="detail">查看详情</button>
+							</div>
+						</div>
+						<div class="hotel">
+							<div class="pic">
+								<img src="images/hotel.jpg" alt="">
+							</div>
+							<div class="hotelBox">
+								<div class="info">
+									<p class="title" id="title">A1</p>
+									<p class="address" id="address">潘阿姨5L</p>
+									<div class="saying">
+										<span class="saying-title">大家说:</span>
+										<span class="content">位置优越</span>
+									</div>
+									<div class="provide">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+
+									</div>
+									<p></p>
+								</div>
+
+							</div>
+							<div class="area">
+								<div class="price">
+									<span>¥</span>
+									<span id="price">233</span>
+								</div>
+								<div class="score">
+									<span id="score">4.8</span><span>/5分</span>
+								</div>
+								<div class="comment">
+									<span>共</span><span id="#comment">5</span><span>条评论</span>
+								</div>
+								<button class="detail">查看详情</button>
+							</div>
+						</div>
+						<div class="hotel">
+							<div class="pic">
+								<img src="images/hotel.jpg" alt="">
+							</div>
+							<div class="hotelBox">
+								<div class="info">
+									<p class="title" id="title">A1</p>
+									<p class="address" id="address">潘阿姨5L</p>
+									<div class="saying">
+										<span class="saying-title">大家说:</span>
+										<span class="content">位置优越</span>
+									</div>
+									<div class="provide">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+										<img src="images/wifi.png" class="wifi">
+
+									</div>
 									<p></p>
 								</div>
 
@@ -138,4 +375,6 @@
 		</div>
 	</div>
 </body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/Order-hotel.js"></script>
 </html>

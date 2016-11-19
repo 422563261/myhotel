@@ -91,7 +91,6 @@ $(function(){
 							$("#bookDay").text(data[0].bookDay);
 							$("#startDay").text($startDay);
 							$("#finalDay").text($finalDay);
-							//$("#livingDay").text($startDay  &nbsp + "--"  &nbsp + $finaDay);
 						}
 					})
 				}

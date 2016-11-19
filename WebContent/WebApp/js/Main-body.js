@@ -190,7 +190,6 @@ $(function(){
 	$('#register_username').on('blur',  function(event) {
 		event.preventDefault();
 		var $username = $(this).val();
-		$register_username = encodeURI($username);
 		if($username==""){
 			$('.error-username').text('用户名不能为空');
 		}
@@ -198,12 +197,13 @@ $(function(){
 			$('.error-username').text('用户名不合规范');
 		}
 		else{
+			$register_username = encodeURI($username);
 			$('.error-username').text('');
 			$.ajax({
 				"url": '/Hotel/check.action',
 				"type": 'GET',
 				"dataType": 'json',
-				"data": {"username": $username},
+				"data": {"username": $register_username},
 				"success":function(data){
 					var data = $.parseJSON(data.content);
 					if(data[0].status=="0"){
@@ -221,7 +221,6 @@ $(function(){
 	$('#register_password').on('blur', function(event) {
 		event.preventDefault();
 		var $password = $(this).val();
-		$register_password = $password;
 		if($password==""){
 			$('.error-password').text('密码不能为空');
 		}
@@ -230,6 +229,7 @@ $(function(){
 		}
 		else{
 			$('.error-password').text('');
+			$register_password = $password;
 		}
 	});
 
@@ -237,12 +237,12 @@ $(function(){
 	$('#register_password_confirm').on('blur', function(event) {
 		event.preventDefault();
 		var $password = $(this).val();
-		$register_password_confirm = $password;
 		if($register_password_confirm!=$register_password){
 			$('.error-password-confirm').text('两个密码不一致');
 		}
 		else{
 			$('.error-password-confirm').text('');
+			$register_password_confirm = $password;
 		}
 	});
 
