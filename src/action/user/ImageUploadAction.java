@@ -1,6 +1,11 @@
 package action.user;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
@@ -68,27 +73,52 @@ public class ImageUploadAction extends ActionSupport {
 		int status;
 		JSONArray Json_array = new JSONArray();
 		System.out.println(uploadFileFileName);
+		String root = ServletActionContext.getRequest().getRealPath("/upload");
 		if (uploadFile != null) {
 			// 上传文件存放的目录
-			
-			String dataDir = System.getProperty("user.home")+"\\workspace\\Hotel\\WebContent\\upload\\";
-			String image ="upload\\"+uploadFileFileName;
-			// 上传文件在服务器具体的位置
-			File savedFile = new File(dataDir, uploadFileFileName);
-			// 将上传文件从临时文件复制到指定文件
-			uploadFile.renameTo(savedFile);
-			user.setPhoto(image);
-			this.userService.update(user);
-			status = 1;
-			JSON_Object.put("status", status);
-			Json_array.add(JSON_Object);
-			JSON_Object = new JSONObject();
-			JSON_Object.put("content", Json_array.toJSONString());
-			out.write(JSON_Object.toJSONString());
-			out.flush();
-			out.close();
+			try {
+				InputStream is = new FileInputStream(uploadFile);
+				// 创建一个文件，路径为root，文件名叫fileFileName
+
+				uploadFileFileName = user.getUsername() + uploadFileFileName.substring(uploadFileFileName.lastIndexOf("."));
+
+				File destFile = new File(root, uploadFileFileName);
+				// 将文件输出到指定的目录
+
+				System.out.println(destFile.getAbsolutePath());
+				// 开始上传
+				OutputStream os = new FileOutputStream(destFile);
+
+				byte[] buffer = new byte[50000];
+
+				System.out.println(uploadFileFileName);
+				String image = "upload\\" + uploadFileFileName;
+				int length = 0;
+				// enctype="multipart/form-data"
+				while (-1 != (length = is.read(buffer))) {
+					os.write(buffer, 0, length);
+					is.close();
+					os.close();
+				}
+				user.setPhoto(image);
+				this.userService.update(user);
+				status = 1;
+				JSON_Object.put("status", status);
+				JSON_Object.put("src", image);
+				Json_array.add(JSON_Object);
+				JSON_Object = new JSONObject();
+				JSON_Object.put("content", Json_array.toJSONString());
+				out.write(JSON_Object.toJSONString());
+				out.flush();
+				out.close();
+				
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+			}
 
 		} else {
+
 			status = 0;
 			JSON_Object.put("status", status);
 			Json_array.add(JSON_Object);
