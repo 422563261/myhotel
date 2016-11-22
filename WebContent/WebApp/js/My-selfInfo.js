@@ -72,7 +72,7 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 				var data = $.parseJSON(data.content);
-				$(".img-up img").prop("src",data[0].src);
+				$(".img-up img").prop("src",data[0].image);
 			}
 		})
 	});

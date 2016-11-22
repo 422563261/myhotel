@@ -237,7 +237,7 @@ $(function(){
 	$('#register_password_confirm').on('blur', function(event) {
 		event.preventDefault();
 		var $password = $(this).val();
-		if($register_password_confirm!=$register_password){
+		if($password!=$register_password){
 			$('.error-password-confirm').text('两个密码不一致');
 		}
 		else{
