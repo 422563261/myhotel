@@ -36,12 +36,14 @@ public class UserCenter extends ActionSupport {
 		int status;
 		JSONArray Json_array = new JSONArray();
 		if (user.getStatus().equals("0")) {
+
 			JSON_Object.put("image", user.getPhoto());
 			JSON_Object.put("name", user.getName());
 			JSON_Object.put("idCard", user.getIDCard_number());
 			JSON_Object.put("cellphone", user.getCellphone());
 			JSON_Object.put("sex", user.getSex());
 			JSON_Object.put("userStatus", user.getStatus());
+
 			Json_array.add(JSON_Object);
 			JSON_Object = new JSONObject();
 			JSON_Object.put("content", Json_array.toJSONString());

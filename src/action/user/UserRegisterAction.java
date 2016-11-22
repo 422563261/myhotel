@@ -68,6 +68,7 @@ public class UserRegisterAction extends ActionSupport {
 		User user = new User();
 		user.setUsername(str);
 		user.setPassword(password);
+		user.setStatus("1");
 		PrintWriter out = response.getWriter();
 		
 		if (username != null && password != null) {
