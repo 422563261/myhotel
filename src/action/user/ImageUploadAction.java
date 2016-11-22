@@ -27,11 +27,11 @@ public class ImageUploadAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private UserService userService;
 
-	// ÓÃ»§ÉÏ´«µÄÎÄ¼ş
+	// ï¿½Ã»ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 	private File uploadFile;
-	// ÉÏ´«ÎÄ¼şµÄÎÄ¼şÃû
+	// ï¿½Ï´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 	private String uploadFileFileName;
-	// ÉÏ´«ÎÄ¼şµÄÀàĞÍ
+	// ï¿½Ï´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private String uploadFileContentType;
 
 	public File getUploadFile() {
@@ -77,19 +77,19 @@ public class ImageUploadAction extends ActionSupport {
 		System.out.println(uploadFileFileName);
 		String root = ServletActionContext.getRequest().getRealPath("/upload");
 		if (uploadFile != null) {
-			// ÉÏ´«ÎÄ¼ş´æ·ÅµÄÄ¿Â¼
+			// ï¿½Ï´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Åµï¿½Ä¿Â¼
 			try {
 				InputStream is = new FileInputStream(uploadFile);
-				// ´´½¨Ò»¸öÎÄ¼ş£¬Â·¾¶Îªroot£¬ÎÄ¼şÃû½ĞfileFileName
+				// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½Îªrootï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½fileFileName
 
 				uploadFileFileName = user.getUsername()
 						+ uploadFileFileName.substring(uploadFileFileName.lastIndexOf("."));
 
 				File destFile = new File(root, uploadFileFileName);
-				// ½«ÎÄ¼şÊä³öµ½Ö¸¶¨µÄÄ¿Â¼
+				// ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 
 				System.out.println(destFile.getAbsolutePath());
-				// ¿ªÊ¼ÉÏ´«
+				//é½å¨ç‹
 				OutputStream os = new FileOutputStream(destFile);
 
 				byte[] buffer = new byte[50000];
