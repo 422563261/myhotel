@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags"%>
+   <%
+	String path = request.getContextPath();
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,8 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="getOrder" method="get">
-	<input value="tiajiao" type="submit">
-	</form>
+<img  src="${src}" style="width:100px;height:100px;">
 </body>
 </html>

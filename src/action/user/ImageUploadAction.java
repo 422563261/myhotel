@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import entity.User;
@@ -80,7 +82,8 @@ public class ImageUploadAction extends ActionSupport {
 				InputStream is = new FileInputStream(uploadFile);
 				// 创建一个文件，路径为root，文件名叫fileFileName
 
-				uploadFileFileName = user.getUsername() + uploadFileFileName.substring(uploadFileFileName.lastIndexOf("."));
+				uploadFileFileName = user.getUsername()
+						+ uploadFileFileName.substring(uploadFileFileName.lastIndexOf("."));
 
 				File destFile = new File(root, uploadFileFileName);
 				// 将文件输出到指定的目录
@@ -92,26 +95,28 @@ public class ImageUploadAction extends ActionSupport {
 				byte[] buffer = new byte[50000];
 
 				System.out.println(uploadFileFileName);
-				String image = "upload\\" + uploadFileFileName;
+				String image = "/Hotel/upload/" + uploadFileFileName;
+				System.out.println(image);
 				int length = 0;
 				// enctype="multipart/form-data"
 				while (-1 != (length = is.read(buffer))) {
 					os.write(buffer, 0, length);
-					is.close();
-					os.close();
+
 				}
+				is.close();
+				os.close();
 				user.setPhoto(image);
 				this.userService.update(user);
 				status = 1;
 				JSON_Object.put("status", status);
-				JSON_Object.put("src", image);
+				JSON_Object.put("image", image);
 				Json_array.add(JSON_Object);
 				JSON_Object = new JSONObject();
 				JSON_Object.put("content", Json_array.toJSONString());
 				out.write(JSON_Object.toJSONString());
 				out.flush();
 				out.close();
-				
+
 			} catch (IOException ex) {
 
 				ex.printStackTrace();

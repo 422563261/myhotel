@@ -71,7 +71,7 @@
 			method="getOrder">
 		</action>
 		<action name="fileupload" class="action.user.ImageUploadAction">
-			<result name="success"></result>
+			<result name="success">/NewFile.jsp</result>
 			<result name="input"></result>
 			<!-- 拦截器设置上传文件大小类型 -->
 			<interceptor-ref name="defaultStack">
