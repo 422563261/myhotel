@@ -1,5 +1,7 @@
 package serviceImpl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import dao.RoomDao;
@@ -31,6 +33,21 @@ public class RoomServiceImpl implements RoomService {
 	public List<Room> findAllRooms() {
 
 		return (List<Room>) this.roomDao.findAllRooms();
+	}
+
+	@Override
+	public List<Room> findRoomByDirection(String direction) {
+		Room room =null;
+		List<Room> rooms = new ArrayList();
+		List<Room> rs = this.roomDao.findAllRooms();
+		Iterator<Room> it = rs.iterator();
+		while(it.hasNext()){
+			room = it.next();
+			if(room.getDirection().equals(direction)){
+				rooms.add(room);
+			}
+		}
+		return rooms;
 	}
 
 }
