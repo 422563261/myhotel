@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="s" uri="/struts-tags"%>
-   <%
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
 	String path = request.getContextPath();
 %>
 
@@ -12,6 +12,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img  src="${src}" style="width:100px;height:100px;">
+	<form action="chooseRoom.action" method="post">
+		价格：<input name="price" type="text"><br>
+		朝向：<input name="direction" type="text"><br>
+		入住：<input name="roomStatus" type="text"><br>
+		类型：<input name="RoomType" type="text"><br>
+		<input value="提交" type="submit">
+	</form>
 </body>
 </html>
