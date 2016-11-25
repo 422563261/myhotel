@@ -8,6 +8,24 @@ $(function(){
     var $reg1 = /^[A-Za-z0-9]{3,11}$/;//用户名要求是3~11的位的字母或者数字
     var $reg2 = /^[A-Za-z0-9]{6,11}$/;//密码要求是6~11的位的字母或者数字
 
+
+    var choice_option = {
+
+    }
+    //腾讯地图
+    //var center = new qq.maps.LatLng(29.5320341434, 106.6054431519);
+    //var map = new qq.maps.Map(document.getElementById("rightBox"), {
+    //    // 地图的中心地理坐标。
+    //    center: center,
+    //    zoom:15
+    //});
+    //
+    //var marker = new qq.maps.Marker({
+    //    position: center,
+    //    map: map
+    //});
+    /////
+
     //对于用户是否登录的检测请求
     $.ajax({
         "url": '/Hotel/WebApp/refresh.action',
@@ -225,16 +243,6 @@ $(function(){
     $("input[type=checkbox]").on('click',function(){
         $(this).parent().siblings("span").find("input").prop("checked",false);
         var $name = $(this).prop("id");
-        console.log($name);
-        $.ajax({
-            url:"./",
-            type:"POST",
-            dataType:"json",
-            data:{direction:$name},
-            success:function(data){
-                console.log(data);
-            }
-        })
     });
 
 
@@ -297,6 +305,7 @@ $(function(){
         }).siblings().css("color","#000");
     });
 
+    //清除选项
     $(".clean").on("click",function(){
         $(this).siblings(".lab").find("input").prop({
             "disabled":false,
@@ -305,6 +314,68 @@ $(function(){
             "color":"#000"
         })
     });
+
+    $(".hotel").on('mouseover',function(){
+        $(this).addClass("hotel-hover").find(".detail").addClass("detail-hover");
+    });
+    $(".hotel").on('mouseout',function(){
+        $(this).removeClass("hotel-hover").find(".detail").removeClass("detail-hover");
+    });
+
+    //默认排序
+    $("#default_sort").on('click', function() {
+        $(this).siblings("li").removeClass("active");
+        $(this).addClass("active");
+        $.ajax({
+            type:"POST",
+            url:"",
+            data:{"type":"defaultSort"},
+            dataType:"json",
+            success:function(data){
+
+            }
+        })
+    });
+
+    //价格低到高排序
+    $("#price_low_hight").on('click', function() {
+        $(this).siblings("li").removeClass("active");
+        $(this).addClass("active");
+        $.ajax({
+            type:"POST",
+            url:"",
+            data:{"type":"priceLowHight"},
+            dataType:"json",
+            success:function(data){
+
+            }
+        })
+    });
+
+    //评分低到高排序
+    $("#score_low_height").on('click', function() {
+        $(this).siblings("li").removeClass("active");
+        $(this).addClass("active");
+        $.ajax({
+            type:"POST",
+            url:"",
+            data:{"type":"scoreLowHight"},
+            dataType:"json",
+            success:function(data){
+
+            }
+        })
+    });
+
+    $("#choice_form").ajaxForm({
+        url:"chooseRoom.action",
+        type:"POST",
+        dataType:"json",
+        success:function(data){
+            console.log(data);
+        }
+
+    })
 });
 
 

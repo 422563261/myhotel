@@ -327,6 +327,7 @@ html{
 		.leftBox{
 			width: 8.7rem;
 			position: relative;
+			float: left;
 			.result{
 				font-size: .12rem;
 				padding: .15rem 0;
@@ -350,6 +351,9 @@ html{
 					float: left;
 					margin: 0 .2rem;
 					cursor: pointer;
+				}
+				.active{
+					color: #7f1f59;
 				}
 			}
 			.hotel-list{
@@ -455,9 +459,24 @@ html{
 							margin-top: .2rem;
 							padding: 0;
 						}
+						.detail-hover{
+							background-color: #641e4c;
+							color: #fff;
+						}
+						
 					}
 				}
+				.hotel-hover{
+					box-shadow: 2px 2px 4px 0 rgba(0,0,0,.1);
+				}
+
 			}
+		}
+		.rightBox{
+			float: right;
+			height:4rem;
+			width: 3rem;
+			margin-top: .47rem;
 		}
 	}
 }

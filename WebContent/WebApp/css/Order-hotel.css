@@ -328,6 +328,7 @@ html {
 .bodyer .bodyer-center .leftBox {
   width: 8.7rem;
   position: relative;
+  float: left;
 }
 .bodyer .bodyer-center .leftBox .result {
   font-size: .12rem;
@@ -353,6 +354,9 @@ html {
   float: left;
   margin: 0 .2rem;
   cursor: pointer;
+}
+.bodyer .bodyer-center .leftBox .sort .active {
+  color: #7f1f59;
 }
 .bodyer .bodyer-center .leftBox .hotel-list {
   margin-top: .36rem;
@@ -459,4 +463,17 @@ html {
   border-radius: 3px;
   margin-top: .2rem;
   padding: 0;
+}
+.bodyer .bodyer-center .leftBox .hotel-list .hotel .area .detail-hover {
+  background-color: #641e4c;
+  color: #fff;
+}
+.bodyer .bodyer-center .leftBox .hotel-list .hotel-hover {
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.bodyer .bodyer-center .rightBox {
+  float: right;
+  height: 4rem;
+  width: 3rem;
+  margin-top: .47rem;
 }

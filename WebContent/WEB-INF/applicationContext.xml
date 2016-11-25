@@ -127,6 +127,9 @@
 		<property name="orderService" ref="orderService"></property>
 	</bean>
 	<!-- roomAction -->
+	<bean id="roomAction" class="action.room.RoomChoose" scope="prototype">
+		<property name="roomService" ref="roomService"></property>
+	</bean>
 	<!-- bedAction -->
 
 </beans>

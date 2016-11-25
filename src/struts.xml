@@ -81,6 +81,9 @@
 				<param name="fileUpload.allowedTypesSet">image/jpg,image/jpeg,image/png</param>
 			</interceptor-ref>
 		</action>
+		<action name="chooseRoom" class="action.room.RoomChoose">
+			<result name="success"></result>
+		</action>
 	</package>
 
 
