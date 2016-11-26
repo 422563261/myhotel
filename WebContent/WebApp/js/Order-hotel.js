@@ -375,7 +375,10 @@ define(['jquery','jqueryForm'],function($){
                     })
                 });
 
-                $("#choice_form").ajaxSubmit(choice_option);
+                $("#choice_form").ajaxForm(choice_option);
+                $("#put").on('click',function(){
+                    $("#choice_form").ajaxSubmit();
+                })
              });
 
         }
