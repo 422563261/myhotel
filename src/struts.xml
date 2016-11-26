@@ -31,9 +31,7 @@
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
 		</action>
-			<action name="chooseRoom" class="action.room.RoomChoose">
-			<result name="success">success.jsp</result>
-		</action>
+		
 
 	</package>
 	<!-- 用户登录才能访问 -->
@@ -84,7 +82,9 @@
 				<param name="fileUpload.allowedTypesSet">image/jpg,image/jpeg,image/png</param>
 			</interceptor-ref>
 		</action>
-	
+		<action name="chooseRoom" class="action.room.RoomChoose">
+			<result name="success">success.jsp</result>
+		</action>
 	</package>
 
 

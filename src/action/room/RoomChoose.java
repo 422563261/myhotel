@@ -73,6 +73,10 @@ public class RoomChoose extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+		System.out.println("direction:" + direction);
+		System.out.println("price:" + price);
+		System.out.println("roomType:" + roomType);
+		System.out.println("roomStatus:" + roomStatus);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		request.setCharacterEncoding("UTF-8");
@@ -88,20 +92,23 @@ public class RoomChoose extends ActionSupport {
 		while (it.hasNext()) {
 			room = it.next();
 			System.out.println(room.getRoomId());
-			if (price.equals("level1") && room.getPrice() < 150) {
+			if (price != null && price.equals("level1") && room.getPrice() < 150) {
 				rooms.add(room);
-			} else if (price.equals("level2") && room.getPrice() >= 150 && room.getPrice() < 300) {
+			} else if (price != null && price.equals("level2") && room.getPrice() >= 150 && room.getPrice() < 300) {
 				rooms.add(room);
-			} else if (price.equals("level3") && room.getPrice() >= 300 && room.getPrice() <= 500) {
+			} else if (price != null && price.equals("level3") && room.getPrice() >= 300 && room.getPrice() <= 500) {
 				rooms.add(room);
-			} else if (price.equals("level4") && room.getPrice() > 500) {
+			} else if (price != null && price.equals("level4") && room.getPrice() > 500) {
+				rooms.add(room);
+			} else if (price == null) {
+				System.out.println("没选价");
 				rooms.add(room);
 			} else {
-				rooms.add(room);
+				System.out.println("不存在这样价格的房间");
 			}
 		}
 		// 发送数据
-		System.out.println("+++");
+		System.out.println("最后发送的数据：" + rooms.isEmpty());
 		Iterator<Room> iterator = rooms.iterator();
 		while (iterator.hasNext()) {
 			room = iterator.next();
@@ -119,27 +126,6 @@ public class RoomChoose extends ActionSupport {
 		out.flush();
 		out.close();
 		return SUCCESS;
-	}
-
-	public List<Room> price(List<Room> room, String roomType) {
-		Iterator<Room> it = room.iterator();
-		Room r = null;
-		List<Room> rooms = new ArrayList<Room>();
-		while (it.hasNext()) {
-			if (price.equals("level1")) {
-				rooms.add(r);
-			} else if (price.equals("level2")) {
-				rooms.add(r);
-			} else if (price.equals("level3")) {
-				rooms.add(r);
-			} else if (price.equals("level4")) {
-				rooms.add(r);
-			} else {
-				rooms.add(r);
-			}
-
-		}
-		return rooms;
 	}
 
 	public List<Room> roomType(List<Room> room, String roomType) {
@@ -161,11 +147,11 @@ public class RoomChoose extends ActionSupport {
 		List<Room> rooms = new ArrayList<Room>();
 		while (it.hasNext()) {
 			r = it.next();
-			if (roomStatus.equals("未入住")) {
+			if (roomStatus.equals("nobody")) {
 				if (r.getLimitLive() == r.getSpareLive()) {
 					rooms.add(r);
 				}
-			} else if (roomStatus.equals("已入住")) {
+			} else if (roomStatus.equals("somebody")) {
 				if (r.getLimitLive() != r.getSpareLive()) {
 					rooms.add(r);
 				}
@@ -176,16 +162,17 @@ public class RoomChoose extends ActionSupport {
 
 	// 根据direction,rooType,roomStatus筛选
 	public List<Room> valide() {
-		if (!direction.isEmpty()) {
+		if (direction != null) {
 			List<Room> rs = roomService.findRoomByDirection(direction);
-			System.out.println("dir" + rs.isEmpty());
+
 			// 房间类型，二人间，三人间，四人间
-			if (!roomType.isEmpty()) {
+			if (roomType != null) {
+
 				rs = roomType(rs, roomType);
 				System.out.println("toomType1" + rs.isEmpty());
 
 				//
-				if (!roomStatus.isEmpty()) {
+				if (roomStatus != null) {
 					rs = roomStatus(rs, roomStatus);
 					System.out.println("roomStatus" + rs.isEmpty());
 					return rs;
@@ -196,8 +183,10 @@ public class RoomChoose extends ActionSupport {
 
 			} else {
 				//
+
 				if (roomStatus != null) {
 					rs = roomStatus(rs, roomStatus);
+
 					return rs;
 				}
 				System.out.println("toomType2" + rs.isEmpty());
@@ -206,23 +195,23 @@ public class RoomChoose extends ActionSupport {
 
 		} else {
 			List<Room> rs = roomService.findAllRooms();
-			System.out.println("direction" + rs.isEmpty());
-			if (!roomType.isEmpty()) {
+
+			if (roomType != null) {
 				rs = roomType(rs, roomType);
-				System.out.println("toomType3" + rs.isEmpty());
+
 				//
-				if (!roomStatus.isEmpty()) {
+				if (roomStatus != null) {
 					rs = roomStatus(rs, roomStatus);
 					return rs;
 				}
 				return rs;
 			} else {
 				//
-				if (!roomStatus.isEmpty()) {
+				if (roomStatus != null) {
 					rs = roomStatus(rs, roomStatus);
 					return rs;
 				}
-				System.out.println("toomType4" + rs.isEmpty());
+
 				return rs;
 			}
 
