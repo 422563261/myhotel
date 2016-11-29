@@ -10,15 +10,68 @@ define(['jquery','jqueryForm'],function($){
                 var $register_password_confirm;
                 var $reg1 = /^[A-Za-z0-9]{3,11}$/;//用户名要求是3~11的位的字母或者数字
                 var $reg2 = /^[A-Za-z0-9]{6,11}$/;//密码要求是6~11的位的字母或者数字
+                var model = `<div class="hotel">
+                                <div class="pic">
+                                    <img src="images/hotel.jpg" alt="">
+                                </div>
+                                <div class="hotelBox">
+                                    <div class="info">
+                                        <p class="title" id="title">A1</p>
+                                        <p class="address" id="address">潘阿姨5L</p>
+                                        <div class="saying">
+                                            <span class="saying-title">大家说:</span>
+                                            <span class="content">位置优越</span>
+                                        </div>
+                                        <div class="provide">
+                                            <img src="images/wifi.png" 
+                                            class="wifi">
+                                            <img src="images/wifi.png" class="wifi">
+                                            <img src="images/wifi.png" class="wifi">
+                                            <img src="images/wifi.png" class="wifi">
+                                        </div>
+                                        <p></p>
+                                    </div>
 
+                                </div>
+                                <div class="area">
+                                    <div class="price">
+                                        <span>¥</span>
+                                        <span id="price" class="price_num">233</span>
+                                    </div>
+                                    <div class="score">
+                                        <span id="score" class="score_num">4.8</span><span>/5分</span>
+                                    </div>
+                                    <div class="comment">
+                                        <span>共</span><span id="#comment" class="comment_num">5</span><span>条评论</span>
+                                    </div>
+                                    <div class="count">
+                                        <span>已入住:</span><span class="spare">2人</span><span class="total">/3人</span>
+                                    </div>
+                                    <button class="detail">查看详情</button>
+                                </div>
+                            </div>`
 
                 var choice_option = {
                     url:"chooseRoom.action",
                     type:"POST",
                     dataType:"json",
                     success:function(data){
-                        console.log(data);
+                        var data = $.parseJSON(data.content);
+                        var length = data.length;
+                        $(".hotel-list").empty();
+                        //console.log(data.length);
+                        $("#result_num").text(length);
+                        for(var i = 0;i < length;i++){
+                            $(".hotel-list").append(model);
+                            $(".address").eq(i).text(data[i].direction);
+                            $(".price_num").eq(i).text(data[i].price);
+                            $(".title").eq(i).text(data[i].roomId);
+                            $(".score_num").eq(i).text(data[i].score);
+                            $(".comment_num").eq(i).text(data[i].comment);
+   
+                        } 
                     }
+
                 }
                 //腾讯地图
                 //var center = new qq.maps.LatLng(29.5320341434, 106.6054431519);
@@ -323,10 +376,10 @@ define(['jquery','jqueryForm'],function($){
                     })
                 });
 
-                $(".hotel").on('mouseover',function(){
+                $(".hotel-list").on('mouseover','.hotel',function(){
                     $(this).addClass("hotel-hover").find(".detail").addClass("detail-hover");
                 });
-                $(".hotel").on('mouseout',function(){
+                $(".hotel-list").on('mouseout','.hotel',function(){
                     $(this).removeClass("hotel-hover").find(".detail").removeClass("detail-hover");
                 });
 
@@ -375,12 +428,18 @@ define(['jquery','jqueryForm'],function($){
                     })
                 });
 
-                $("#choice_form").ajaxForm(choice_option);
-                $("#put").on('click',function(){
-                    $("#choice_form").ajaxSubmit();
-                })
-             });
+                //选项及时响应
+                $("#choice_form").on('click', "input", function(event) {
+                   $("#choice_form").submit();
+                    
+                });
 
+                //阻止表单提交
+                $('#choice_form').on('submit', function(event) {
+                    event.preventDefault();
+                    $(this).ajaxSubmit(choice_option)
+                });
+             });
         }
     }
 })

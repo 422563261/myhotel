@@ -454,6 +454,14 @@ html {
 .bodyer .bodyer-center .leftBox .hotel-list .hotel .area .comment {
   padding: .05rem 0;
 }
+.bodyer .bodyer-center .leftBox .hotel-list .hotel .area .count {
+  padding: .05rem 0;
+  color: grey;
+}
+.bodyer .bodyer-center .leftBox .hotel-list .hotel .area .count .spare {
+  color: #7f1f59;
+  margin-left: .05rem;
+}
 .bodyer .bodyer-center .leftBox .hotel-list .hotel .area .detail {
   width: .72rem;
   height: .24rem;
@@ -461,7 +469,7 @@ html {
   color: #7f1f59;
   background-color: #fff;
   border-radius: 3px;
-  margin-top: .2rem;
+  margin-top: .07rem;
   padding: 0;
 }
 .bodyer .bodyer-center .leftBox .hotel-list .hotel .area .detail-hover {

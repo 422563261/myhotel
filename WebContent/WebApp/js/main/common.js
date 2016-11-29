@@ -6,6 +6,7 @@ require.config({
     paths:{
         "jquery":"iframe/jquery-2.1.4.min",
         "jqueryForm":"iframe/jquery.form.min",
+        "vue":"iframe/vue",
         "Main-page":"Main-page",
         "Main-body":"Main-body",
         "about":"about",
