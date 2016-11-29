@@ -73,19 +73,7 @@ define(['jquery','jqueryForm'],function($){
                     }
 
                 }
-                //腾讯地图
-                //var center = new qq.maps.LatLng(29.5320341434, 106.6054431519);
-                //var map = new qq.maps.Map(document.getElementById("rightBox"), {
-                //    // 地图的中心地理坐标。
-                //    center: center,
-                //    zoom:15
-                //});
-                //
-                //var marker = new qq.maps.Marker({
-                //    position: center,
-                //    map: map
-                //});
-                /////
+                
 
                 //对于用户是否登录的检测请求
                 $.ajax({
