@@ -8,21 +8,32 @@ public class Room {
 	private int limitLive;
 	private int spareLive;
 	private int price;
+	private float grade;
+	private int comment;
 	
-	public Room() {
 	
+	
+	
+	public float getGrade() {
+		return grade;
 	}
 
-	public Room(int id, String roomId, String roomType, String direction, int limitLive, int spareLive, int price) {
 
-		this.id = id;
-		this.roomId = roomId;
-		this.roomType = roomType;
-		this.direction = direction;
-		this.limitLive = limitLive;
-		this.spareLive = spareLive;
-		this.price = price;
+	public void setGrade(float grade) {
+		this.grade = grade;
 	}
+
+
+	public int getComment() {
+		return comment;
+	}
+
+
+	public void setComment(int comment) {
+		this.comment = comment;
+	}
+
+
 
 	public int getId() {
 		return id;

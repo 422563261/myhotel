@@ -8,14 +8,11 @@
 
 	<package name="hotel" extends="struts-default,json-default"
 		namespace="/">
-
 		<action name="login" class="action.user.UserAction" method="login">
 			<interceptor-ref name="json">
 				<param name="contentType">json</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
-
-
 		</action>
 
 		<action name="register" class="action.user.UserRegisterAction"
@@ -31,8 +28,24 @@
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
 		</action>
-		
-
+		<action name="chooseRoom" class="action.room.RoomChoose">
+			<interceptor-ref name="json">
+				<param name="contentType">json</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="sortByPrice" class="action.room.SortByPriceAction">
+			<interceptor-ref name="json">
+				<param name="contentType">json</param>
+			</interceptor-ref>
+			
+		</action>
+			<action name="sortByGrade" class="action.room.SortByGradeAction">
+			<interceptor-ref name="json">
+				<param name="contentType">json</param>
+			</interceptor-ref>
+			
+		</action>
 	</package>
 	<!-- 用户登录才能访问 -->
 	<package name="user" extends="struts-default,json-default"
@@ -82,9 +95,7 @@
 				<param name="fileUpload.allowedTypesSet">image/jpg,image/jpeg,image/png</param>
 			</interceptor-ref>
 		</action>
-		<action name="chooseRoom" class="action.room.RoomChoose">
-			<result name="success">success.jsp</result>
-		</action>
+		
 	</package>
 
 

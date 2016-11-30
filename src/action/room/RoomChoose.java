@@ -79,6 +79,7 @@ public class RoomChoose extends ActionSupport {
 		System.out.println("roomStatus:" + roomStatus);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpSession session  = ServletActionContext.getRequest().getSession();
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		JSONObject JSON_Object = new JSONObject();
@@ -109,13 +110,16 @@ public class RoomChoose extends ActionSupport {
 		}
 		// 发送数据
 		System.out.println("最后发送的数据：" + rooms.isEmpty());
+		session.setAttribute("rooms",rooms );
 		Iterator<Room> iterator = rooms.iterator();
 		while (iterator.hasNext()) {
 			room = iterator.next();
 			System.out.println(room.getRoomId());
 			JSON_Object.put("roomId", room.getRoomId());
-			JSON_Object.put("roomType", room.getRoomType());
+			JSON_Object.put("grade", room.getGrade());
+			JSON_Object.put("comment", room.getComment());  
 			JSON_Object.put("sparelive", room.getSpareLive());
+			JSON_Object.put("limitLive", room.getLimitLive());
 			JSON_Object.put("price", room.getPrice());
 			JSON_Object.put("direction", room.getDirection());
 			Json_array.add(JSON_Object);

@@ -26,5 +26,11 @@
           <property name="price" type="int">
             <column name="PRICE" />
         </property>
+        <property name="comment" type="int">
+            <column name="COMMENT" />
+        </property>
+        <property name="grade" type="float">
+            <column name="GRADE" />
+        </property>
     </class>
 </hibernate-mapping>

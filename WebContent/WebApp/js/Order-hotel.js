@@ -51,7 +51,7 @@ define(['jquery','jqueryForm','login'],function($){
                                 </div>
                             </div>`
 
-                function sort(length){
+                function sort(data,length){
                     $(".hotel-list").empty();
                     $("#result_num").text(length);
                     for(var i = 0;i < length;i++){
@@ -73,7 +73,7 @@ define(['jquery','jqueryForm','login'],function($){
                         var data = $.parseJSON(data.content);
                         var length = data.length;
                         //console.log(data.length);
-                        sort(length);
+                        sort(data,length);
                     }
                 };
 
@@ -220,13 +220,13 @@ define(['jquery','jqueryForm','login'],function($){
                     $(this).addClass("active");
                     $.ajax({
                         type:"POST",
-                        url:"",
+                        url:"/Hotel/WebApp/sortByPrice.action",
                         data:{"type":"priceLowHight"},
                         dataType:"json",
                         success:function(data){
                             var data = $.parseJSON(data.content);
                             var length = data.length;
-                            sort(length);
+                            sort(data,length);
                         }
                     })
                 });
@@ -237,13 +237,13 @@ define(['jquery','jqueryForm','login'],function($){
                     $(this).addClass("active");
                     $.ajax({
                         type:"POST",
-                        url:"",
+                        url:"/Hotel/WebApp/sortByGrade.action",
                         data:{"type":"scoreLowHight"},
                         dataType:"json",
                         success:function(data){
                             var data = $.parseJSON(data.content);
                             var length = data.length;
-                            sort(length);
+                            sort(data,length);
                         }
                     })
                 });
