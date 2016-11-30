@@ -72,7 +72,11 @@ define(['jquery','jqueryForm','login'],function($){
                     success:function(data){
                         var data = $.parseJSON(data.content);
                         var length = data.length;
+<<<<<<< HEAD
                         //console.log(data.length);
+=======
+                        console.log(data.length);
+>>>>>>> 51198cc5784f36edc7fea0995d1d8d2051e7ff36
                         sort(data,length);
                     }
                 };

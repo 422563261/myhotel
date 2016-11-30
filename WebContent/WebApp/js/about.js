@@ -9,8 +9,24 @@ define(['jquery'],function($){
 					success:function(data){
 						$('body').append(data);
 						$('.info').remove();
+					
 						//$('.hidden').before("<script src='/Hotel/WebApp/js/MainBody.js'><\/script>");
-						require(['Main-body'],function(){});
+						require(['Main-body'],function(){
+							$(".bar li:nth-child(1)").removeClass('active');
+							$(".bar li:nth-child(3)").addClass('active');
+							$('.bar').on('mouseout', 'li', function() {
+								event.preventDefault();
+								var $value = $(this).attr("value");
+								if ($value!="3") {
+									$(this).removeClass('active');
+									$(".bar li:nth-child(3)").addClass('active');
+								}
+								$("#bar_LP").css({
+									"left":"5.48rem",
+									"width":"0.72rem"
+								});
+							});
+						});
 					}
 				});
 				
