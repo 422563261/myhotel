@@ -51,7 +51,7 @@ define(['jquery','jqueryForm','login'],function($){
                                 </div>
                             </div>`
 
-                function sort(length){
+                function sort(data,length){
                     $(".hotel-list").empty();
                     $("#result_num").text(length);
                     for(var i = 0;i < length;i++){
@@ -72,8 +72,8 @@ define(['jquery','jqueryForm','login'],function($){
                     success:function(data){
                         var data = $.parseJSON(data.content);
                         var length = data.length;
-                        //console.log(data.length);
-                        sort(length);
+                        console.log(data.length);
+                        sort(data,length);
                     }
                 };
 
@@ -226,7 +226,7 @@ define(['jquery','jqueryForm','login'],function($){
                         success:function(data){
                             var data = $.parseJSON(data.content);
                             var length = data.length;
-                            sort(length);
+                            sort(data,length);
                         }
                     })
                 });
@@ -243,7 +243,7 @@ define(['jquery','jqueryForm','login'],function($){
                         success:function(data){
                             var data = $.parseJSON(data.content);
                             var length = data.length;
-                            sort(length);
+                            sort(data,length);
                         }
                     })
                 });
