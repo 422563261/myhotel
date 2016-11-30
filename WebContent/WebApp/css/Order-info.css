@@ -73,6 +73,12 @@ html {
   font-size: .14rem;
   margin-left: .05rem;
 }
+.container .center .left-box .order-info p .error {
+  font-size: .14rem;
+  color: red;
+  display: inline-block;
+  margin-left: .05rem;
+}
 .container .center .left-box .order-info p .cancel {
   background: #fff;
   border: 1px solid #ece8e6;

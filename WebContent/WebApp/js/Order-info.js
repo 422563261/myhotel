@@ -1,7 +1,10 @@
 define(['jquery','login'],function($){
 	return{
 		orderInfo:function(){
-
+            var url = (location.href).toString();
+            if(url.indexOf("ID")!=-1){
+                var $id = url.split("ID=");
+            }
             $.ajax({
                 url:'/Hotel/WebApp/Order-header.html',
                 type:"POST",
@@ -42,6 +45,53 @@ define(['jquery','login'],function($){
                 }
             });
 
+            //加载订单信息
+            $.ajax({
+                url:"",
+                type:"POST",
+                "dataType":"json",
+                data:{"ID":$id},
+                success:function(data){
+                    var data = $.parseJSON(data.content);
+                    console.log(data);
+                }
+            })
+
+            //取消订单
+            $("#pay_cancel").on('click',function(){
+                $.ajax({
+                    url:"",
+                    type:"POST",
+                    "dataType":"json",
+                    data:{"ID":$id},
+                    success:function(data){
+                        var data = $.parseJSON(data.content);
+                        console.log(data);
+                    }
+                })
+            })
+
+
+            $("#pay").on('click',function(){
+                var $price = $("#money_left").text()
+                $.ajax({
+                    url:"",
+                    type:"POST",
+                    "dataType":"json",
+                    data:{"ID":$id,"price":$price},
+                    success:function(data){
+                        var data = $.parseJSON(data.content);
+                        console.log(data);
+                        $(".error").remove();
+                        if(data[0].status==0){
+                            $("#pay").after("<span class='error'>您的余额不足</span>")
+                        }
+                        else{
+
+                        }
+                    }
+                })
+            })
 		}
 	}
 })

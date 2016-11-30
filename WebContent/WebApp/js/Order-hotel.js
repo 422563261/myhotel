@@ -69,6 +69,7 @@ define(['jquery','jqueryForm','login'],function($){
                             $(".score_num").eq(i).text(data[i].score);
                             $(".comment_num").eq(i).text(data[i].comment);
                             $(".spare").eq(i).text(data[i].sparelive);
+                            $(".hotel").eq(i).data("ID",data[i].roomId);
                         } 
                     }
                 };
@@ -249,12 +250,16 @@ define(['jquery','jqueryForm','login'],function($){
                     $("#choice_form").trigger('submit');
                 },1);
 
-
                 //阻止表单提交
                 $('#choice_form').on('submit', function(event) {
                     event.preventDefault();
                     $(this).ajaxSubmit(choice_option)
                 });
+
+                $(document).on('click','.hotel',function(){
+                    var url = "/Hotel/WebApp/Order-info.html?" + "ID="+$(this).data("ID");
+                    location.href = url;
+                })
              });
         }
     }

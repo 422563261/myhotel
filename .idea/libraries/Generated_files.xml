@@ -2,6 +2,7 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/WebContent/WebApp/js/Order-info-compiled.js" />
         <item url="file://$PROJECT_DIR$/WebContent/WebApp/js/main/common-compiled.js" />
         <item url="file://$PROJECT_DIR$/WebContent/WebApp/js/Order-hotel-compiled.js" />
         <item url="file://$PROJECT_DIR$/WebContent/WebApp/js/login-compiled.js" />
@@ -9,7 +10,6 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/WebContent/WebApp/js/Order-info-compiled.js" />
       <root url="file://$PROJECT_DIR$/WebContent/WebApp/js/Order-info-compiled.js" />
       <root url="file://$PROJECT_DIR$/WebContent/WebApp/js/main/common-compiled.js" />
       <root url="file://$PROJECT_DIR$/WebContent/WebApp/js/Order-hotel-compiled.js" />
