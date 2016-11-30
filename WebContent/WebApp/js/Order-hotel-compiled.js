@@ -51,6 +51,20 @@ define(['jquery', 'jqueryForm', 'login'], function ($) {
                                 </div>
                             </div>`;
 
+                function sort(length) {
+                    $(".hotel-list").empty();
+                    $("#result_num").text(length);
+                    for (var i = 0; i < length; i++) {
+                        $(".hotel-list").append(model);
+                        $(".address").eq(i).text(data[i].direction);
+                        $(".price_num").eq(i).text(data[i].price);
+                        $(".title").eq(i).text(data[i].roomId);
+                        $(".score_num").eq(i).text(data[i].score);
+                        $(".comment_num").eq(i).text(data[i].comment);
+                        $(".spare").eq(i).text(data[i].sparelive);
+                        $(".hotel").eq(i).data("ID", data[i].roomId);
+                    }
+                }
                 var choice_option = {
                     url: "chooseRoom.action",
                     type: "POST",
@@ -58,19 +72,8 @@ define(['jquery', 'jqueryForm', 'login'], function ($) {
                     success: function (data) {
                         var data = $.parseJSON(data.content);
                         var length = data.length;
-                        $(".hotel-list").empty();
                         //console.log(data.length);
-                        $("#result_num").text(length);
-                        for (var i = 0; i < length; i++) {
-                            $(".hotel-list").append(model);
-                            $(".address").eq(i).text(data[i].direction);
-                            $(".price_num").eq(i).text(data[i].price);
-                            $(".title").eq(i).text(data[i].roomId);
-                            $(".score_num").eq(i).text(data[i].score);
-                            $(".comment_num").eq(i).text(data[i].comment);
-                            $(".spare").eq(i).text(data[i].sparelive);
-                            $(".hotel").eq(i).data("ID", data[i].roomId);
-                        }
+                        sort(length);
                     }
                 };
 
@@ -212,7 +215,11 @@ define(['jquery', 'jqueryForm', 'login'], function ($) {
                         url: "",
                         data: { "type": "priceLowHight" },
                         dataType: "json",
-                        success: function (data) {}
+                        success: function (data) {
+                            var data = $.parseJSON(data.content);
+                            var length = data.length;
+                            sort(length);
+                        }
                     });
                 });
 
@@ -225,7 +232,11 @@ define(['jquery', 'jqueryForm', 'login'], function ($) {
                         url: "",
                         data: { "type": "scoreLowHight" },
                         dataType: "json",
-                        success: function (data) {}
+                        success: function (data) {
+                            var data = $.parseJSON(data.content);
+                            var length = data.length;
+                            sort(length);
+                        }
                     });
                 });
 
