@@ -13,7 +13,9 @@ require.config({
         "My-hotel":"My-hotel",
         "My-page":"My-page",
         "My-selfInfo":"My-selfInfo",
-        "orderHotel":"Order-hotel"
+        "orderHotel":"Order-hotel",
+        "orderInfo":"Order-info",
+        "login":"login"
     },
     shim:{
         "jqueryForm":['jquery']
