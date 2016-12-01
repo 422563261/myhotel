@@ -122,10 +122,12 @@ body {
   float: left;
 }
 .hidden .box-input .input-area .phone-img {
-  background: url('../images/phone.png') center no-repeat / 0.1rem 0.18rem, #f9f9f9 0 0rem;
+  background: url('../images/phone.png') center no-repeat;
+  background-color: #f9f9f9;
 }
 .hidden .box-input .input-area .keyword-img {
-  background: url('../images/keyword.png') center no-repeat / 0.16rem, #f9f9f9 0 0rem;
+  background: url('../images/keyword.png') center no-repeat;
+  background-color: #f9f9f9;
 }
 .hidden .box-input .input-area .word {
   float: left;

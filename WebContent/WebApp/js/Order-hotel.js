@@ -59,7 +59,7 @@ define(['jquery','jqueryForm','login'],function($){
                         $(".address").eq(i).text(data[i].direction);
                         $(".price_num").eq(i).text(data[i].price);
                         $(".title").eq(i).text(data[i].roomId);
-                        $(".score_num").eq(i).text(data[i].score);
+                        $(".score_num").eq(i).text(data[i].grade);
                         $(".comment_num").eq(i).text(data[i].comment);
                         $(".spare").eq(i).text(data[i].sparelive);
                         $(".hotel").eq(i).data("ID",data[i].roomId);
@@ -72,11 +72,7 @@ define(['jquery','jqueryForm','login'],function($){
                     success:function(data){
                         var data = $.parseJSON(data.content);
                         var length = data.length;
-<<<<<<< HEAD
                         //console.log(data.length);
-=======
-                        console.log(data.length);
->>>>>>> 51198cc5784f36edc7fea0995d1d8d2051e7ff36
                         sort(data,length);
                     }
                 };
