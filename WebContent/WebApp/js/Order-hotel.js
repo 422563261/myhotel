@@ -12,7 +12,7 @@ define(['jquery','jqueryForm','login'],function($){
                 var $reg2 = /^[A-Za-z0-9]{6,11}$/;//密码要求是6~11的位的字母或者数字
                 var model = `<div class="hotel">
                                 <div class="pic">
-                                    <img src="images/hotel.jpg" alt="">
+                                    <img src="images/hotel.png" alt="">
                                 </div>
                                 <div class="hotelBox">
                                     <div class="info">

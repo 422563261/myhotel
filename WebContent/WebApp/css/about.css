@@ -1,7 +1,4 @@
 .container {
   background: url('../images/bg2.jpg');
-}
-#bar_LP{
-	width:.72rem;
-	left:5.48rem
+  background-size: 100% 100%;
 }

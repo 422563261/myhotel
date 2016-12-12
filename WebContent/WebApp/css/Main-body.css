@@ -177,6 +177,7 @@ body {
   height: 5.9rem;
   background-image: url('../images/bg1.jpg');
   position: relative;
+  background-size: 100% 100%;
 }
 .container::before {
   content: '';
