@@ -89,7 +89,7 @@ define(['jquery'],function($){
 			$('.box').addClass('box-login-active').removeClass('box-register-active');
 			$('.box-hotel-register').css({
 				"font-size":".16rem",
-				"color":"#7f1f59",
+				"color":"#015092",
 				"margin-top":".24rem"
 			});
 			$('.box-hotel-login').css({
@@ -114,7 +114,7 @@ define(['jquery'],function($){
 			$('.box').addClass('box-register-active').removeClass('box-login-active');
 			$('.box-hotel-login').css({
 				"font-size":".16rem",
-				"color":"#7f1f59",
+				"color":"#015092",
 				"margin-top":".24rem"
 			});
 			$('.box-hotel-register').css({

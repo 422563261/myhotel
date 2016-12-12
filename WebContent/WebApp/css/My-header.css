@@ -2,8 +2,8 @@ html {
   font-size: 100px;
 }
 .head {
-  border-top: .04rem solid #971464;
-  background: #f8f4f6;
+  border-top: .04rem solid #3c88c6;
+  background: #eaf7ff;
   min-width: 12.8rem;
 }
 .head .head-center {
@@ -30,7 +30,7 @@ html {
   line-height: .4rem;
   font-size: .2rem;
   font-weight: bolder;
-  color: #971464;
+  color: #015092;
   float: left;
   padding-left: .24rem;
   margin-left: .37rem;
@@ -58,12 +58,12 @@ html {
   color: #000;
 }
 .head .user-box ul li a:hover {
-  color: #7a0b64;
+  color: #015092;
 }
 .head .user-box ul li:nth-child(2) {
   padding-left: .18rem;
   border-left: .01rem solid #c8c8c8;
 }
 .head .user-box ul li:nth-child(2) a {
-  color: #6a2a55;
+  color: #015092;
 }

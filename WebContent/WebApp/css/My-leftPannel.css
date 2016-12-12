@@ -24,7 +24,7 @@
   font-size: .12rem;
 }
 .dir li a:hover {
-  color: #7a0b64;
+  color: #015092;
 }
 .main-body {
   overflow: hidden;
@@ -43,7 +43,7 @@
   color: #333;
 }
 .left-pannel li a:hover {
-  color: #7a0b64;
+  color: #015092;
 }
 .left-pannel li:first-child {
   margin-top: 0;

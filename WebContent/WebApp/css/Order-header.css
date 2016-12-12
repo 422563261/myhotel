@@ -45,7 +45,7 @@ html {
   width: 3.5rem;
   height: .6rem;
   padding: 0 .2rem;
-  background: linear-gradient(to bottom, #a51863 10%, #f6f2f4 0);
+  background: linear-gradient(to bottom, #3c88c6 10%, #eaf7ff 0);
   position: relative;
 }
 .hidden .box-head img {
@@ -58,7 +58,7 @@ html {
   display: inline-block;
   font-size: .16rem;
   font-weight: bold;
-  color: #7f1f59;
+  color: #015092;
   float: left;
   margin-top: .24rem;
   margin-left: .1rem;
@@ -75,7 +75,7 @@ html {
 .hidden .box-head .box-hotel-register {
   float: right;
   margin-right: .3rem;
-  color: #7f1f59;
+  color: #015092;
   cursor: pointer;
 }
 .hidden .box-head .box-hotel-login a:hover,
@@ -119,10 +119,12 @@ html {
   float: left;
 }
 .hidden .box-input .input-area .phone-img {
-  background: url('../images/phone.png') center no-repeat / 0.1rem 0.18rem, #f9f9f9 0 0rem;
+  background: url('../images/phone.png') center no-repeat;
+  background-color: #f9f9f9;
 }
 .hidden .box-input .input-area .keyword-img {
-  background: url('../images/keyword.png') center no-repeat / 0.16rem, #f9f9f9 0 0rem;
+  background: url('../images/keyword.png') center no-repeat;
+  background-color: #f9f9f9;
 }
 .hidden .box-input .input-area .word {
   float: left;
@@ -137,9 +139,9 @@ html {
   width: 3.2rem;
   height: .46rem;
   margin: 0 auto;
-  background: #a51863;
+  background: #3c88c6;
   font-size: .22rem;
-  color: #f6f2f4;
+  color: #eaf7ff;
   text-align: center;
   line-height: .46rem;
   margin-top: .38rem;
@@ -172,7 +174,7 @@ html {
   min-width: 12rem;
   height: .6rem;
   line-height: .6rem;
-  background-color: #f2ebec;
+  background-color: #eaf7ff;
 }
 .header .header-center {
   width: 11.9rem;
@@ -198,7 +200,7 @@ html {
   display: inline-block;
   font-size: .24rem;
   font-weight: bold;
-  color: #7f1f59;
+  color: #015092;
   margin-left: .1rem;
 }
 .header .header-center .register,
@@ -219,11 +221,11 @@ html {
 .header .header-center .login a:hover,
 .header .header-center .user a:hover,
 .header .header-center .logout a:hover {
-  color: #7f1f59;
+  color: #015092;
 }
 .nav {
   min-width: 12rem;
-  background-color: #760e50;
+  background-color: #033763;
   height: .5rem;
 }
 .nav .nav-container {

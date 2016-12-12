@@ -48,7 +48,7 @@ body {
   width: 3.5rem;
   height: .6rem;
   padding: 0 .2rem;
-  background: linear-gradient(to bottom, #a51863 10%, #f6f2f4 0);
+  background: linear-gradient(to bottom, #3c88c6 10%, #eaf7ff 0);
   position: relative;
 }
 .hidden .box-head img {
@@ -61,7 +61,7 @@ body {
   display: inline-block;
   font-size: .16rem;
   font-weight: bold;
-  color: #7f1f59;
+  color: #015092;
   float: left;
   margin-top: .24rem;
   margin-left: .1rem;
@@ -78,7 +78,7 @@ body {
 .hidden .box-head .box-hotel-register {
   float: right;
   margin-right: .3rem;
-  color: #7f1f59;
+  color: #015092;
   cursor: pointer;
 }
 .hidden .box-head .box-hotel-login a:hover,
@@ -142,9 +142,9 @@ body {
   width: 3.2rem;
   height: .46rem;
   margin: 0 auto;
-  background: #a51863;
+  background: #3c88c6;
   font-size: .22rem;
-  color: #f6f2f4;
+  color: #eaf7ff;
   text-align: center;
   line-height: .46rem;
   margin-top: .38rem;
@@ -253,7 +253,7 @@ body {
   padding-left: .22rem;
 }
 .top .float-info li a:hover {
-  color: #7e2259;
+  color: #015092;
   background: #e7e7e7;
 }
 .nav {
@@ -297,7 +297,7 @@ body {
   left: .8rem;
   width: .36rem;
   height: .02rem;
-  background: #e554a5;
+  background: #55b2ff;
   transition: left .3s ease;
 }
 .bar li {
@@ -401,7 +401,7 @@ body {
 .info .search {
   height: 1.1rem;
   width: 3rem;
-  background: #ad0963;
+  background: #226399;
 }
 .info .search div:nth-child(1) {
   font-size: .24rem;

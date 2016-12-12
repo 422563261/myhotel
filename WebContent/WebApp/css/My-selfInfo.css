@@ -2,7 +2,7 @@
   margin-bottom: 1rem;
 }
 .left-pannel li:nth-child(4) a {
-  color: #7a0b64;
+  color: #015092;
   font-weight: bold;
 }
 .right-pannel {
@@ -128,11 +128,11 @@
   width: 3.05rem;
   height: .4rem;
   border: none;
-  background: #7f1f59;
+  background: #015092;
   font-size: .16rem;
   color: #fff;
   border-radius: .05rem;
 }
 .right-pannel .main-info .line .save:hover {
-  background: #651c4d;
+  background: #033763;
 }
